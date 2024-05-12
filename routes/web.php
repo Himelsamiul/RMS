@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\MenuController;
+use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 use App\Http\Controllers\Frontend\WebpagerController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,7 @@ Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->n
 
 
 Route::get('/customer/logout', [WebpagerController::class, 'logoutsuccess'])->name('logout.success');
+Route::get('/add/to/cart{menuid}', [FrontendOrderController::class, 'addtocart'])->name('add.to.cart');
 
 
 
@@ -72,6 +74,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/menu/list', [MenuController::class, 'list'])->name('menu.list');
         Route::get('/menu/form', [MenuController::class, 'form'])->name('menu.form');
         Route::post('/menu/form', [MenuController::class, 'store'])->name('menu.store');
+        Route::get('/menu/delete{id}', [MenuController::class, 'menudelete'])->name('menu.delete');
+        Route::get('/menu/view/{id}', [MenuController::class, 'menuview'])->name('menu.view');
 
         //customer
         Route::get('/customer/list', [CustomerController::class, 'list'])->name('customer.list');

@@ -40,15 +40,7 @@
                       </svg><span class="sidebar-link-title">Orders</span></a>
                       
                 
-              <li class="sidebar-list-item"><a class="sidebar-link text-muted " href="#" data-bs-target="#tablesDropdown" role="button" aria-expanded="false" data-bs-toggle="collapse"> 
-                      <svg class="svg-icon svg-icon-md me-3">
-                        <use xlink:href="icons/orion-svg-sprite.71e9f5f2.svg#grid-1"> </use>
-                      </svg><span class="sidebar-link-title">Tables </span></a>
-                <ul class="sidebar-menu list-unstyled collapse " id="tablesDropdown">
-                  <li class="sidebar-list-item"><a class="sidebar-link text-muted" href="tables.html">Booked Table</a></li>
-                  <li class="sidebar-list-item"><a class="sidebar-link text-muted" href="tables-datatable.html">Available Table</a></li>
-                </ul>
-              </li>
+              
               <li class="sidebar-list-item">
                 <a class="sidebar-link text-muted " href="{{route('sign.out')}}"  role="button" > 
                       <svg class="svg-icon svg-icon-md me-3">

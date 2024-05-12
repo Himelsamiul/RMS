@@ -10,11 +10,11 @@
         </div>
         <div class="menu-tab">
             <ul class="nav nav-pills justify-content-center">
-                @foreach($data as $Category)
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="pill" href="#burgers">{{$Category->name}}</a>
+                
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#burgers"></a>
                 </li>
-                @endforeach
+                 -->
             </ul>
             <div class="tab-content">
                 <div id="burgers" class="container tab-pane active">
@@ -24,6 +24,9 @@
                                 <div class="menu-img">
                                     <img src="img/menu-burger.jpg" alt="Image">
                                 </div>
+
+
+
                                 <div class="menu-text">
                                     <h3><span>Mini cheese Burger</span> <strong>$9.00</strong></h3>
                                     <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
@@ -33,6 +36,8 @@
                                 <div class="menu-img">
                                     <img src="img/menu-burger.jpg" alt="Image">
                                 </div>
+
+                                
                                 <div class="menu-text">
                                     <h3><span>Double size burger</span> <strong>$11.00</strong></h3>
                                     <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>

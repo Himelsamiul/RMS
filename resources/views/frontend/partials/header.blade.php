@@ -18,8 +18,15 @@
                         <a href="{{route('home')}}" class="btn btn-secondary">Home</a>
                         <a href="{{route('aboutus')}}"class="btn btn-secondary">About</a>
                         
+                        <li class="nav-item dropdown">
+                        <a href="{{route('all.menu')}}"class="btn btn-secondary" class="nav-link" data-toggle="dropdown">Category<i class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            @foreach($categories as $data)
+                            <li><a href="" class="dropdown-item">{{$data->name}}</a></li>
+                            @endforeach
+                        </ul>   
+                    </li>
                         
-                        <a href="{{route('all.menu')}}"class="btn btn-secondary">Menu</a>
                         
                     
                         <a href="{{route('contact')}}"class="btn btn-secondary">Contact</a>

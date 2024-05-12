@@ -13,6 +13,8 @@ class MenuController extends Controller
 
     public function list(){
         $data=Menu::paginate(5);  
+    
+        
         
         return view('backend.pages.menu.menulist',compact('data'));
     }
@@ -20,9 +22,11 @@ class MenuController extends Controller
 
     public function form(){
      
-        $Categories=Menu::with('category')->get();
+        
+        //
+        $categories=Category::all();
 
-        return view('backend.pages.menu.menuform',compact('Categories'));
+        return view('backend.pages.menu.menuform',compact('categories'));
     }
 
 
@@ -34,7 +38,7 @@ class MenuController extends Controller
             'price'=>'required|gt:1',
             'description'=>'required',
             'status'=>'required',
-            'quantity'=>'required',
+            'quantity'=>'required|gt:1',
             
         ]);
 
@@ -81,10 +85,43 @@ class MenuController extends Controller
           
         ]);
 
+
+        
+
         notify()->success('menu Created Successfully.');
 
         return redirect()->route('menu.form');
+
+
+
     }
+
+
+    
+    public function menudelete($m_id){
+
+        // Category::find($c_id)->delete();
+        
+          $menu=Menu::find($m_id);
+          $menu->delete();
+        
+          notify()->success('Category deleted successfully.');
+          return redirect()->back();
+        }
+        
+
+
+        public function menuview($id){
+
+            $menuview=Menu::find($id);
+            // dd($catview);
+            return view('backend.pages.menu.menuview',compact('menuview'));
+        
+          }
+        
+        
+        
+            
     
 }
 

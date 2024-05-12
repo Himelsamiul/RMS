@@ -41,17 +41,17 @@
       <td>{{$menu->id}}</td>
       <td>{{$menu->name}}</td>
       <td>{{$menu->category->name}}</td>
-      <td>{{$menu->price}}</td>
-      <td>{{$menu->description}}</td>
-     
+      <td>{{$menu->price}}.BDT</td>
+      <td>{{$menu->description}}</td>    
       <td>{{$menu->status}}</td>
       <td>{{$menu->quantity}}</td>
       <td>
         <img width="70px" src="{{url('/app/image/menu/'.$menu->image)}}" alt="">
       <td>
-        <a href="" class="btn btn-primary">View</a>
+      <a href="{{route('menu.view',$menu->id)}}" class="btn btn-primary">View</a>
+
         <a href="" class="btn btn-secondary">Edit</a>
-        <a href="" class="btn btn-danger">Delete</a>
+        <a href="{{route('menu.delete',$menu->id)}}" class="btn btn-danger">Delete</a>
       </td>
     </tr>
     @endforeach

@@ -54,8 +54,8 @@
   <div class="form-group">
       <label for="">Menu Category</label>
       <select class="form-control" name="category_id" id="">
-      @foreach ($Categories as $data)
-        <option value="{{$data->id}} ">
+      @foreach ($categories as $data)
+        <option value="{{$data->id}} "> 
           {{$data->name}}</option>
       @endforeach
       

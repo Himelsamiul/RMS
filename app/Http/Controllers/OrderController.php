@@ -9,7 +9,7 @@ class OrderController extends Controller
 {
     public function orderstore(){
 
-        return view('backend.pages.order');
+        return view('backend.pages.order.order');
          
     }
 }
