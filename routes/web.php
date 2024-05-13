@@ -6,7 +6,7 @@ use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 use App\Http\Controllers\Frontend\WebpagerController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Frontend\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,8 +36,11 @@ Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->n
 
 
 Route::get('/customer/logout', [WebpagerController::class, 'logoutsuccess'])->name('logout.success');
-Route::get('/add/to/cart{menuid}', [FrontendOrderController::class, 'addtocart'])->name('add.to.cart');
 
+
+Route::get('/add-to-cart/{productId}',[OrderController::class, 'addToCart'])->name('add.to.cart');
+Route::get('/view-cart',[OrderController::class,'viewCart'])->name('view.cart');
+Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
 
 
 

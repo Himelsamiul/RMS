@@ -26,7 +26,7 @@
                               
                                 </div>
                                 <div class="menu-text">
-                                    <h3><span>{{$data->name}}r</span> <strong>$9.00</strong></h3>
+                                    <h3><span>{{$data->name}}</span> <strong>{{$data->price}}&nbsp;BDT</strong></h3>
                                     <p>{{$data->description}}</p>
                                     
                                 </div>

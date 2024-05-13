@@ -33,8 +33,8 @@
                     
                         <a href="{{route('contact')}}"class="btn btn-secondary">Contact</a>
                         
-                        <a class="btn btn-outline-secondary" href="">
-                          <i class="bi-cart-fill me-1">Cart(0)</i>
+                        <a class="btn btn-outline-secondary" href="{{route('view.cart')}}">Cart({{session()->get('cart') ? count(session()->get('cart')) : 0}})">
+                         
                                        
                            <span class="navbar navbar-expand-lg bg-light navbar-light">
       
