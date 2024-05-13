@@ -6,9 +6,9 @@
                             <div class="col-md-6">
                                 <div class="footer-contact">
                                     <h2>Our Address</h2>
-                                    <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
-                                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-                                    <p><i class="fa fa-envelope"></i>info@example.com</p>
+                                    <p><i class="fa fa-map-marker-alt"></i>Mirpur,Dhaka-1214,Bangladesh</p>
+                                    <p><i class="fa fa-phone-alt"></i>+880 1706-636599</p>
+                                    <p><i class="fa fa-envelope"></i>himel@gmail.com</p>
                                     <div class="footer-social">
                                         <a href=""><i class="fab fa-twitter"></i></a>
                                         <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -34,7 +34,7 @@
                         <div class="footer-newsletter">
                             <h2>Newsletter</h2>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Quisque eu lectus a leo dictum nec non quam. Tortor eu placerat rhoncus, lorem quam iaculis felis, sed lacus neque id eros.
+                            Welcome to Olivia! We love making tasty food and sharing it with you. Our chefs use fresh ingredients to cook up delicious meals just for you. We're here to make sure you have a great time every time you visit us.
                             </p>
                             <div class="form">
                                 <input class="form-control" placeholder="Email goes here">

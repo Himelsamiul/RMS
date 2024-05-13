@@ -19,10 +19,12 @@
                         <a href="{{route('aboutus')}}"class="btn btn-secondary">About</a>
                         
                         <li class="nav-item dropdown">
-                        <a href="{{route('all.menu')}}"class="btn btn-secondary" class="nav-link" data-toggle="dropdown">Category<i class="fa fa-angle-down"></i></a>
+                        <a href=""class="btn btn-secondary" class="nav-link" data-toggle="dropdown">Category<i class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
+                            
                             @foreach($categories as $data)
-                            <li><a href="" class="dropdown-item">{{$data->name}}</a></li>
+                            
+                            <li><a href="{{route('category.menu',$data->id)}}" class="dropdown-item">{{$data->name }}</a></li>
                             @endforeach
                         </ul>   
                     </li>
@@ -32,7 +34,7 @@
                         <a href="{{route('contact')}}"class="btn btn-secondary">Contact</a>
                         
                         <a class="btn btn-outline-secondary" href="">
-                          <i class="bi-cart-fill me-1">Cart</i>
+                          <i class="bi-cart-fill me-1">Cart(0)</i>
                                        
                            <span class="navbar navbar-expand-lg bg-light navbar-light">
       

@@ -51,7 +51,12 @@
       <td>{{$Customer->status}}</td>
       
     </tr>
+    <td>
+    <a href="{{route('customer.delete',$Customer->id)}}" class="btn btn-danger">Delete</a>
+    </td>
     @endforeach
+
+    
     
   </tbody>
 </table>

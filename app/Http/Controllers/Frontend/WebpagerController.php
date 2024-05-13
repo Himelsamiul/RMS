@@ -158,6 +158,13 @@ class WebpagerController extends Controller
             return view('frontend.pages.home');
         }
 
+        public function categorymenu($id){
+
+            $category = Category::with('menu')->find($id);
+            // dd($category);
+            return view('frontend.pages.category',compact('category'));
+        }
+
     }
 
 

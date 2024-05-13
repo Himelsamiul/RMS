@@ -11,7 +11,7 @@
                 <div class="carousel-text">
                     <h1>Best <span>Quality</span> Ingredients</h1>
                     <p>
-                        Lorem ipsum dolor sit amet elit. Phasellus ut mollis mauris. Vivamus egestas eleifend dui ac consequat at lectus in malesuada
+                    Experience the flavors of the world with our exquisite culinary creations
                     </p>
                     <div class="carousel-btn">
                         <a class="btn custom-btn" href="{{route('all.menu')}}">View Menu</a>
@@ -25,7 +25,7 @@
                 <div class="carousel-text">
                     <h1>World’s <span>Best</span> Chef</h1>
                     <p>
-                        Morbi sagittis turpis id suscipit feugiat. Suspendisse eu augue urna. Morbi sagittis, orci sodales varius fermentum, tortor
+                    Discover the artistry of cuisine as we delight your senses with our gastronomic delights.
                     </p>
                     <div class="carousel-btn">
                         <a class="btn custom-btn" href="">View Menu</a>
@@ -40,7 +40,7 @@
                 <div class="carousel-text">
                     <h1>Fastest Order <span>Delivery</span></h1>
                     <p>
-                        Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                    Hungry? Don't wait long! Our speedy delivery brings deliciousness to your doorstep
                     </p>
                     <div class="carousel-btn">
                         <a class="btn custom-btn" href="">View Menu</a>
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consec adipis elit. Phasel nec preti mi. Curabit facilis ornare velit non vulputa. Aliquam metus tortor, auctor id gravida condime, viverra quis sem. Curabit non nisl nec nisi sceleri maximus
+                    Welcome to our restaurant management system, where we streamline every aspect of your operations. From intuitive table and order management to seamless billing and reservation systems, we ensure a smooth dining experience. With advanced inventory tracking, detailed analytics, and staff management tools, we empower you to run a successful restaurant efficiently and effectively.
                     </p>
                    
                 </div>

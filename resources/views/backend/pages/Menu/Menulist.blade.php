@@ -35,10 +35,12 @@
 
 
   
-  @foreach($data as $menu)
-    <tr>
+  @foreach($data as $key=>$menu)
 
-      <td>{{$menu->id}}</td>
+    <tr>
+      <th scope="row">{{$key+1}}</th>
+
+     
       <td>{{$menu->name}}</td>
       <td>{{$menu->category->name}}</td>
       <td>{{$menu->price}}.BDT</td>

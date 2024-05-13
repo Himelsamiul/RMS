@@ -25,6 +25,7 @@ Route::get('/', [WebpagerController::class, 'webpage'])->name('home');
 Route::get('/about-us', [WebpagerController::class, 'aboutus'])->name('aboutus');
 Route::get('/menu', [WebpagerController::class, 'menu'])->name('all.menu');
 Route::get('/contact', [WebpagerController::class, 'contact'])->name('contact');
+Route::get('/category/menu/{id}', [WebpagerController::class, 'categorymenu'])->name('category.menu');
 
 
 Route::get('/customer', [WebpagerController::class, 'formreg'])->name('reg');
@@ -81,6 +82,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/customer/list', [CustomerController::class, 'list'])->name('customer.list');
         Route::get('/customer/form', [CustomerController::class, 'form'])->name('customer.form');
         Route::post('/customer/form', [CustomerController::class, 'store'])->name('customer.store');
+        Route::get('/customer/delete{id}', [CustomerController::class, 'delete'])->name('customer.delete');
 
 
         //orders

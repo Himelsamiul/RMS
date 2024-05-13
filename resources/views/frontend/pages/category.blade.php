@@ -17,16 +17,23 @@
                 <div id="burgers" class="container tab-pane active">
                     <div class="row">
                         <div class="col-lg-7 col-md-12">
+
+                        @foreach($category->menu as $data)
                             <div class="menu-item">
                                 <div class="menu-img">
-                                    <img src="img/menu-burger.jpg" alt="Image">
+                                    <img src="{{url('app/image/menu', $data->image)}}" alt="Image">
+                             
+                              
                                 </div>
                                 <div class="menu-text">
-                                    <h3><span>Mini cheese Burger</span> <strong>$9.00</strong></h3>
-                                    <p>Lorem ipsum dolor sit amet elit. Phasel nec preti facil</p>
+                                    <h3><span>{{$data->name}}r</span> <strong>$9.00</strong></h3>
+                                    <p>{{$data->description}}</p>
+                                    
                                 </div>
+
+
                             </div>
-                            
+                            @endforeach
                             
                             
                             

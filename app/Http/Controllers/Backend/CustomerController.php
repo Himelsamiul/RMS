@@ -64,5 +64,18 @@ class CustomerController extends Controller
         return redirect()->route('customer.form');
         
     }
+
+
+    public function delete($customer_id){
+
+        // Category::find($c_id)->delete();
+        
+          $Customer=Customer::find($customer_id);
+          $Customer->delete();
+        
+          notify()->success('Customer deleted successfully.');
+          return redirect()->back();
+        }
+        
     
 }
