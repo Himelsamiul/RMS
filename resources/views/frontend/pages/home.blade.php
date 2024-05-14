@@ -8,7 +8,7 @@
                 <div class="carousel-img">
                     <img src="{img/carousel-1.jpg" alt="Image">
                 </div>
-                <div class="carousel-text">
+               <div class="carousel-text">
                     <h1>Best <span>Quality</span> Ingredients</h1>
                     <p>
                     Experience the flavors of the world with our exquisite culinary creations
@@ -336,7 +336,8 @@
 
 
 <!-- Testimonial Start -->
-<div class="testimonial">
+
+<!--<div class="testimonial">
     <div class="container">
         <div class="owl-carousel testimonials-carousel">
             <div class="testimonial-item">

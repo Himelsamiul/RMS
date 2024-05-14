@@ -41,6 +41,9 @@ class WebpagerController extends Controller
             return view('frontend.pages.Customer_reg');
            }
 
+
+           
+
            
            public function reg(Request $request){
 

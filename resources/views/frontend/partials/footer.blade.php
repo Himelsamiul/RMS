@@ -46,8 +46,8 @@
             </div>
             <div class="copyright">
                 <div class="container">
-                    <p>Copyright &copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
-                    <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                    <p>Copyright &copy; <a href="#">Olivia</a>, All Right Reserved.</p>
+                    <p>Designed By <a href="https://htmlcodex.com">Himel</a></p>
                 </div>
             </div>
         </div>

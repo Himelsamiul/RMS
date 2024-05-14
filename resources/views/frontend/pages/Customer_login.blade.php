@@ -1,4 +1,4 @@
-@extends('frontend.webpage')
+`@extends('frontend.webpage')
 @section('content')
 
 
@@ -103,4 +103,4 @@ Forgot Password?
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vedd3670a3b1c4e178fdfb0cc912d969e1713874337387" integrity="sha512-EzCudv2gYygrCcVhu65FkAxclf3mYM6BCwiGUm6BEuLzSb5ulVhgokzCZED7yMIkzYVg65mxfIBNdNra5ZFNyQ==" data-cf-beacon='{"rayId":"87eee9842fcc29eb","version":"2024.4.1","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
 </body>
 </html>
-@endsection
+@endsection`
