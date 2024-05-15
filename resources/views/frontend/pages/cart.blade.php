@@ -26,7 +26,7 @@
                 <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-2 col-lg-2 col-xl-2">
                     <img
-                    src="{{url('/app/image/menu'.$cart['image'])}}"
+                    src="{{url('/app/image/menu/'.$cart['image'])}}"
                     class="img-fluid rounded-3" alt="Cotton T-shirt">
                 </div>
                 
@@ -74,5 +74,7 @@
     </div>
   </div>
 </section>
+
+
 
 @endsection

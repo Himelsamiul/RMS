@@ -32,14 +32,14 @@
 
 
 
-
+    @include('notify::components.notify')
 
     @include('frontend.partials.header')
 
 
 
     <!-- Nav Bar End -->
-
+   
 
     <!-- Carousel Start -->
 
@@ -77,7 +77,7 @@
     <!-- Template Javascript -->
     <script src="{{url('js/main.js')}}"></script>
 </body>
-@include('notify::components.notify')
+
 @notifyJs
 
 </html>

@@ -37,7 +37,10 @@ Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->n
 
 Route::middleware('auth:customerGuard')->group(function() {
 
+
+Route::get('/profile/view', [WebpagerController::class, 'profileview'])->name('profile.view');
 Route::get('/customer/logout', [WebpagerController::class, 'logoutsuccess'])->name('logout.success');
+
 
 
 Route::get('/add-to-cart/{productId}',[OrderController::class, 'addToCart'])->name('add.to.cart');

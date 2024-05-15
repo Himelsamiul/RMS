@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Customerlogin;
 use App\Models\customerreg;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -168,6 +169,13 @@ class WebpagerController extends Controller
             return view('frontend.pages.category',compact('category'));
         }
 
+        public function profileview(){
+           // $order=Order::where('customer_id',auth()->user()->id)->get();
+            return view('frontend.pages.profileView');
+
+        }
+
+        
     }
 
 
