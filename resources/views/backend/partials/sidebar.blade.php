@@ -34,7 +34,7 @@
                       </svg><span class="sidebar-link-title">Customer</span></a>
                 
               </li>
-              <li class="sidebar-list-item"><a class="sidebar-link text-muted " href="{{route('order.list')}}" role="button" > 
+              <li class="sidebar-list-item"><a class="sidebar-link text-muted " href="" role="button" > 
                       <svg class="svg-icon svg-icon-md me-3">
                         <use xlink:href="icons/orion-svg-sprite.71e9f5f2.svg#file-storage-1"> </use>
                       </svg><span class="sidebar-link-title">Orders</span></a>

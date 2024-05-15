@@ -43,6 +43,7 @@ Route::get('/customer/logout', [WebpagerController::class, 'logoutsuccess'])->na
 Route::get('/add-to-cart/{productId}',[OrderController::class, 'addToCart'])->name('add.to.cart');
 Route::get('/view-cart',[OrderController::class,'viewCart'])->name('view.cart');
 Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
+Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.place');
 
 });
 
@@ -91,7 +92,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
         //orders
-        Route::get('/order/list', [OrderController::class, 'orderstore'])->name('order.list');
+        
 
 
         
