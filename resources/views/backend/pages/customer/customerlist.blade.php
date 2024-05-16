@@ -23,7 +23,7 @@
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Email Address</th>
-      <th scope="col">Password</th>
+      
       <th scope="col">Phone Number</th>
       
       <th scope="col">Address</th>
@@ -42,7 +42,7 @@
       <td>{{$Customer->id}}</td>
       <td>{{$Customer->name}}</td>
       <td>{{$Customer->email}}</td>
-      <td>{{$Customer->password}}</td>
+      
       <td>{{$Customer->phoneno}}</td>
      
       <td>{{$Customer->address}}</td>

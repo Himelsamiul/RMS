@@ -18,8 +18,8 @@
                             </div>
                             <div class="userData ml-3">
                                 <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">User: {{auth()->user()->name}}</a></h2>
-                                <h6 class="d-block"><a href="javascript:void(0)"></a> Approved Bookings</h6>
-                                <h6 class="d-block"><a href="javascript:void(0)"></a> Pending Bookings</h6>
+                                
+                             
                             </div>
 
                         </div>
@@ -84,16 +84,13 @@
 </div>
 </div>
 
-<!--<table class="table">
+<table class="table">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Customer Name</th>
-            <th scope="col">Customer Phone</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Quantity</th>
+            <th scope="col">Order Number</th>
             <th scope="col">Total Price</th>
-            <th scope="col">Address</th>
+            <th scope="col">Status</th>
             <th scope="col">Payment Method</th>
             <th scope="col">Date</th>
             <th scope="col">Action</th>
@@ -101,22 +98,20 @@
     </thead>
     <tbody>
 
-       @foreach($order as $data)
+       @foreach($orders as $key=>$data)
+       
         <tr>
-            <th scope="row">{{$order->id}}</th>
-            <td>{{$order->auth()->user()->name}}</td>
-            <td>{{$order->auth()->user()->phoneno}}</td>
-            <td>{{$order->OrderDetail->food->name}}</td>
-            <td>{{$order->OrderDetail->quantity}}</td>
-            <td>{{$order->total_price}}</td>
-            <td>{{$order->auth()->user()->address}}</td>
-            <td>{{$order->payment_method}}</td>
-            <td>{{$order->create_at->format('d-m-Y')}}</td>
+        <th scope="row">{{$key+1}}</th>
+            <th scope="row">Order-{{$data->id}}</th>
+            <td>{{$data->total_price}}</td>
+            <td>{{$data->status}}</td>
+            <td>{{$data->payment_method}}</td>
+            <td>{{$data->created_at}}</td>
             <td>
 
-                <a class="btn btn-danger" href="">Cancel Booking</a>
+                <a class="btn btn-danger" href="">Cancel Order</a>
 
-                <a class="btn btn-success" href="">Make Payment</a>
+                <a class="btn btn-success" href="{{route('profile.view.order',$data->id)}}">View Order</a>
             
             </td>
         </tr>
@@ -125,7 +120,7 @@
 
     </tbody>
 
-</table>-->
+</table>
 
 
 

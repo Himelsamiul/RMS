@@ -3,14 +3,16 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function admin()
     {
+        $customer=Customer::count();
 
-        return view('backend.pages.dashboard');
+        return view('backend.pages.dashboard',compact('customer'));
     }
 
 

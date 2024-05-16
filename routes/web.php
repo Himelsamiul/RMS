@@ -33,12 +33,13 @@ Route::post('/customer/done', [WebpagerController::class, 'reg'])->name('custome
 
 Route::get('/customer/login', [WebpagerController::class, 'login'])->name('customer.login');
 Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->name('customer.success');
-Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->name('customer.success');
+//Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->name('customer.success');
 
 Route::middleware('auth:customerGuard')->group(function() {
 
 
 Route::get('/profile/view', [WebpagerController::class, 'profileview'])->name('profile.view');
+Route::get('/profile/view/order/{id}', [WebpagerController::class, 'profilevieworder'])->name('profile.view.order');
 Route::get('/customer/logout', [WebpagerController::class, 'logoutsuccess'])->name('logout.success');
 
 
@@ -47,6 +48,7 @@ Route::get('/add-to-cart/{productId}',[OrderController::class, 'addToCart'])->na
 Route::get('/view-cart',[OrderController::class,'viewCart'])->name('view.cart');
 Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
 Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.place');
+Route::get('/delete-order/{orderId}',[OrderController::class,'deleteOrder'])->name('delete.order');
 
 });
 

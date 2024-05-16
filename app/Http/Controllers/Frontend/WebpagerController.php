@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\Customerlogin;
 use App\Models\customerreg;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -169,9 +170,22 @@ class WebpagerController extends Controller
             return view('frontend.pages.category',compact('category'));
         }
 
+
+
+
+        public function profilevieworder($id){
+
+            $orderview=OrderDetail::with('menu')->where('order_id',$id)->get();
+            // dd($orderview);
+            return view('frontend.pages.profilevieworder',compact('orderview'));
+        
+          }
+
         public function profileview(){
-           // $order=Order::where('customer_id',auth()->user()->id)->get();
-            return view('frontend.pages.profileView');
+            
+            $orders = Order::with('orderDetails')->where('customer_id', auth()->user()->id)->get();
+            // dd($orders);
+            return view('frontend.pages.profileView',compact('orders'));
 
         }
 

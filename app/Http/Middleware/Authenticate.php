@@ -15,15 +15,13 @@ class Authenticate extends Middleware
     {
 
 
-    if($request->expectsJson()){
-        return null;
+        if ($request->expectsJson()) {
+            return null;
+        }
+        if ($this->auth->guard('customerGuard')->check() === false) {
+            notify()->info('You need to log in first');
+            return route('customer.login');
+        }
+        return route('admin.login');
     }
-    if($this->auth->guard('customerGuard')->check()===false){
-    notify()->info('You need to log in first');
-    return route('customer.login');
-    }
-    return route('admin.login');
-}
-
-
 }
