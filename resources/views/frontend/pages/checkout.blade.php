@@ -9,6 +9,7 @@
     <div class="row" style="margin-top: 100px;">
 
         <div class="col-md-4 order-md-2 mb-4">
+           
             <h2>Checkout form</h2>
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
@@ -22,17 +23,13 @@
                     </div>
                     <span class="text-muted">$12</span>
                 </li>
+              
+
+                
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
+                        <h6 class="my-0">Subtotal</h6>
+                        <small class="text-muted"></small>
                     </div>
                     <span class="text-muted">$5</span>
                 </li>
