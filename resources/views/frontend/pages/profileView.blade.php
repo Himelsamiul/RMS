@@ -1,30 +1,23 @@
 @extends('frontend.webpage')
 
 @section('content')
-
-<div class="container">
+<div class="container" style="margin-top: 150px;">
     <div class="row">
         <div class="col-12">
-            <div class="card">
-
+            <div class="card mb-4">
                 <div class="card-body">
                     <div class="card-title mb-4">
                         <div class="d-flex justify-content-start">
                             <div class="image-container">
                                 <img src="" alt="Upload Image" class="rounded-circle" width="150">
-                                <div class="middle">
-    
-                                </div>
                             </div>
                             <div class="userData ml-3">
-                                <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a href="javascript:void(0);">User: {{auth()->user()->name}}</a></h2>
-                                
-                             
+                                <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a
+                                        href="javascript:void(0);">User: {{auth()->user()->name}}</a></h2>
                             </div>
-
                         </div>
                     </div>
-
+                    <!-- User Information Display -->
                     <div class="row">
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Full Name</label>
@@ -34,9 +27,6 @@
                         </div>
                     </div>
                     <hr />
-
-
-
                     <div class="row">
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Email</label>
@@ -46,7 +36,6 @@
                         </div>
                     </div>
                     <hr />
-
                     <div class="row">
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Contact Info</label>
@@ -56,7 +45,6 @@
                         </div>
                     </div>
                     <hr />
-
                     <div class="row">
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Address</label>
@@ -66,24 +54,15 @@
                         </div>
                     </div>
                     </hr>
-
-
-
-                    <div class="tab-pane fade" id="connectedServices" role="tabpanel" aria-labelledby="ConnectedServices-tab">
+                    <div class="tab-pane fade" id="connectedServices" role="tabpanel"
+                        aria-labelledby="ConnectedServices-tab">
                         Facebook, Google, Twitter Account that are connected to this account
                     </div>
                 </div>
-
             </div>
-
-
         </div>
-
     </div>
 </div>
-</div>
-</div>
-
 <table class="table">
     <thead>
         <tr>
@@ -97,31 +76,30 @@
         </tr>
     </thead>
     <tbody>
-
-       @foreach($orders as $key=>$data)
-       
+        @foreach($orders as $key => $data)
         <tr>
-        <th scope="row">{{$key+1}}</th>
+            <th scope="row">{{$key+1}}</th>
             <th scope="row">Order-{{$data->id}}</th>
             <td>{{$data->total_price}}</td>
-            <td>{{$data->status}}</td>
+            <td>
+                @if ($data->status == 'pending')
+                <span class="badge bg-danger text-white">{{ $data->status }}</span>
+                @elseif ($data->status == 'shipped')
+                <span class="badge bg-primary">{{ $data->status }}</span>
+                @elseif ($data->status == 'delivered')
+                <span class="badge bg-success">{{ $data->status }}</span>
+                @else
+                <span class="badge bg-warning text-white">Cancelled</span>
+                @endif
+            </td>
             <td>{{$data->payment_method}}</td>
             <td>{{$data->created_at}}</td>
             <td>
-
                 <a class="btn btn-danger" href="">Cancel Order</a>
-
                 <a class="btn btn-success" href="{{route('profile.view.order',$data->id)}}">View Order</a>
-            
             </td>
         </tr>
-
-       @endforeach
-
+        @endforeach
     </tbody>
-
 </table>
-
-
-
 @endsection

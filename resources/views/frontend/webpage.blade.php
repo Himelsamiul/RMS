@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-@notifyCss
+    @notifyCss
     <meta charset="utf-8">
     <title>Pan de asia</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -39,13 +39,13 @@
 
 
     <!-- Nav Bar End -->
-   
+
 
     <!-- Carousel Start -->
 
 
-@yield('content')
-<!-- Blog End -->
+    @yield('content')
+    <!-- Blog End -->
 
 
 
@@ -62,6 +62,7 @@
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
     <!-- JavaScript Libraries -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="{{url('lib/easing/easing.min.js')}}"></script>
@@ -73,11 +74,10 @@
     <!-- Contact Javascript File -->
     <script src="{{url('ail/jqBootstrapValidation.min.js')}}"></script>
     <script src="{{url('mail/contact.js')}}"></script>
-
+    @notifyJs
     <!-- Template Javascript -->
     <script src="{{url('js/main.js')}}"></script>
+    @stack('yourJsCode')
 </body>
-
-@notifyJs
 
 </html>

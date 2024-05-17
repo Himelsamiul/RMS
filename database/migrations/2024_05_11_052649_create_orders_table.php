@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('email');
             $table->string('payment_method');
+            $table->enum('status', ['pending', 'shipped', 'delivered', 'cancelled'])->default('pending');
             $table->timestamps();
         });
     }
