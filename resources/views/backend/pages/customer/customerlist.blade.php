@@ -13,7 +13,7 @@
 
 <h1>Customer list</h1>
 <div>
-    <a href="{{route('customer.form')}}" type="button" class="btn btn-success">Edit Customer List</a>
+  
 </div>
 
 <div>
@@ -28,8 +28,9 @@
       
       <th scope="col">Address</th>
       <th scope="col">DOB</th>
-      <th scope="col">Image</th>
       <th scope="col">Status</th>
+      <th scope="col">Image</th>
+     
     </tr>
   </thead>
   <tbody>
@@ -47,8 +48,9 @@
      
       <td>{{$Customer->address}}</td>
       <td>{{$Customer->dob}}</td>
-      <td><img width="70px" src="{{url('/app/image/customer/'.$Customer->image)}}" alt=""></td>
       <td>{{$Customer->status}}</td>
+      <td><img width="70px" src="{{url('/app/image/customer/'.$Customer->image)}}" alt=""></td>
+      
       
     </tr>
     <td>

@@ -139,7 +139,7 @@
                             <i class="flaticon-cooking"></i>
                             <h3>World’s best Chef</h3>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
+                            The journey of a world-class chef is one of passion, dedication, and relentless pursuit of perfection. From the bustling kitchens of Michelin-starred restaurants to the serene countryside retreats, these culinary maestros leave an indelible mark on the culinary landscape. Their innovative techniques, daring flavor combinations, and unwavering commitment to quality set them apart as true culinary luminaries.
                             </p>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                             <i class="flaticon-vegetable"></i>
                             <h3>Natural ingredients</h3>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
+                            Discover the essence of culinary perfection with our selection of dishes crafted from the finest natural ingredients
                             </p>
                         </div>
                     </div>
@@ -159,8 +159,7 @@
                             <i class="flaticon-medal"></i>
                             <h3>Best quality products</h3>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
-                            </p>
+                            We pride ourselves on delivering unparalleled excellence with every product we offer. Our commitment to providing the finest quality items is unwavering, ensuring that each piece embodies craftsmanship, innovation, and sophistication                            </p>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -168,7 +167,7 @@
                             <i class="flaticon-meat"></i>
                             <h3>Fresh vegetables & Meet</h3>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
+                            From vibrant, farm-fresh produce bursting with flavor to tender, premium cuts of meat sourced from the finest suppliers, we take pride in delivering excellence to your table.
                             </p>
                         </div>
                     </div>
@@ -179,19 +178,11 @@
                             <i class="flaticon-courier"></i>
                             <h3>Fastest door delivery</h3>
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
+                            Experience the convenience of lightning-fast door delivery with us! Our commitment to efficiency ensures that your orders reach your doorstep with unrivaled speed and precision
                             </p>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="feature-item">
-                            <i class="flaticon-fruits-and-vegetables"></i>
-                            <h3>Ground beef & Low fat</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet elit. Phasel nec preti mi. Curabit facilis ornare velit non vulput metus tortor
-                            </p>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -201,7 +192,8 @@
 
 
 <!-- Food Start -->
-<div class="food">
+
+  <!--<div class="food">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-4">
@@ -410,16 +402,16 @@
                         <img src="img/blog-1.jpg" alt="Blog">
                     </div>
                     <div class="blog-content">
-                        <h2 class="blog-title">Lorem ipsum dolor sit amet</h2>
+                        <h2 class="blog-title">Food Tours</h2>
                         <div class="blog-meta">
                             <p><i class="far fa-user"></i>Admin</p>
                             <p><i class="far fa-list-alt"></i>Food</p>
-                            <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
+                            <p><i class="far fa-calendar-alt"></i>01-Jan-2024</p>
                             <p><i class="far fa-comments"></i>10</p>
                         </div>
                         <div class="blog-text">
                             <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor. Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte
+                            Indulge in culinary mastery where every bite tells a story of passion and expertise. Our kitchen is a symphony of flavors, meticulously crafted to tantalize your taste buds and leave you craving for more. With a commitment to quality and innovation, we source the finest ingredients from trusted suppliers, ensuring that each dish is a masterpiece of freshness and flavor. From succulent meats to vibrant vegetables, every ingredient is handpicked to deliver an unforgettable dining experience. Step into our world of gastronomic delight, where creativity meets tradition and every meal is a celebration of culinary artistry.
                             </p>
                             <a class="btn custom-btn" href="">Read More</a>
                         </div>
@@ -432,16 +424,16 @@
                         <img src="img/blog-2.jpg" alt="Blog">
                     </div>
                     <div class="blog-content">
-                        <h2 class="blog-title">Lorem ipsum dolor sit amet</h2>
+                        <h2 class="blog-title">Juice Oasis</h2>
                         <div class="blog-meta">
                             <p><i class="far fa-user"></i>Admin</p>
                             <p><i class="far fa-list-alt"></i>Food</p>
-                            <p><i class="far fa-calendar-alt"></i>01-Jan-2045</p>
+                            <p><i class="far fa-calendar-alt"></i>01-Jan-2024</p>
                             <p><i class="far fa-comments"></i>10</p>
                         </div>
                         <div class="blog-text">
                             <p>
-                                Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor. Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte
+                            Embark on a journey of refreshing vitality with our artisanal juices, crafted to invigorate your senses and nourish your body. From the luscious sweetness of ripe fruits to the revitalizing essence of natural ingredients, each sip is a burst of flavor and wellness. Our commitment to quality shines through in every bottle, as we hand-select the freshest produce and blend it to perfection. Whether you crave the zing of citrus or the smoothness of tropical delights, our juices are a symphony of taste and nutrition
                             </p>
                             <a class="btn custom-btn" href="">Read More</a>
                         </div>
