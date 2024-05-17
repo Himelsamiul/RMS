@@ -33,7 +33,6 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Customer id</th>
                                         <th>menu name</th>
                                         <th>Unit price</th>
                                         <th>Quantity</th>
@@ -43,7 +42,6 @@
                                 <tbody>
                                     @foreach($orderview as $data)
                                     <tr>
-                                        <td>{{ $data->id }}</td>
                                         <td>{{ $data->menu->name }}</td>
                                         <td>{{ $data->unit_price }}</td>
                                         <td>{{ $data->quantity }}</td>
