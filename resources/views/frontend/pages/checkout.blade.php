@@ -76,6 +76,12 @@
                     <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
                 </div>
                 <div class="mb-3">
+                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                    <input value="{{ auth()->user()->phoneno }}" name="email" type="email" class="form-control"
+                        id="email" placeholder="you@example.com">
+                    <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
+                </div>
+                <div class="mb-3">
                     <label for="address">Address</label>
                     <input value="{{ auth()->user()->address }}" name="address" type="text" class="form-control"
                         id="address" placeholder="1234 Main St" required="">

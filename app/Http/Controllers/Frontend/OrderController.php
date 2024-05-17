@@ -112,11 +112,6 @@ class OrderController extends Controller
             'customer_id' => 1,
             // 'customer_id'=>auth()->user()->id,
             'total_price' => array_sum(array_column($cartData, 'subtotal')),
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'email' => $request->email,
             'payment_method' => $request->paymentMethod,
         ]);
 
