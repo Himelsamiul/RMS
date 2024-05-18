@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-//website routes(frontend)
+//website routes(frontend)/basic sob kisu
 
 Route::get('/', [WebpagerController::class, 'webpage'])->name('home');
 Route::get('/about-us', [WebpagerController::class, 'aboutus'])->name('aboutus');
@@ -27,7 +27,7 @@ Route::get('/menu', [WebpagerController::class, 'menu'])->name('all.menu');
 Route::get('/contact', [WebpagerController::class, 'contact'])->name('contact');
 Route::get('/category/menu/{id}', [WebpagerController::class, 'categorymenu'])->name('category.menu');
 
-
+//customer er registration er form eigulo
 Route::get('/customer', [WebpagerController::class, 'formreg'])->name('reg');
 Route::post('/customer/done', [WebpagerController::class, 'reg'])->name('customer.done');
 
@@ -35,15 +35,17 @@ Route::get('/customer/login', [WebpagerController::class, 'login'])->name('custo
 Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->name('customer.success');
 //Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->name('customer.success');
 
+
+//middleware diye cart e add korte hole age log in korte hbe
 Route::middleware('auth:customerGuard')->group(function() {
 
-
+//profile er upor click korle information r history dekhabe 
 Route::get('/profile/view', [WebpagerController::class, 'profileview'])->name('profile.view');
 Route::get('/profile/view/order/{id}', [WebpagerController::class, 'profilevieworder'])->name('profile.view.order');
 Route::get('/customer/logout', [WebpagerController::class, 'logoutsuccess'])->name('logout.success');
 
 
-
+//cart ar order er sob route eigula
 Route::get('/add-to-cart/{productId}',[OrderController::class, 'addToCart'])->name('add.to.cart');
 Route::get('/view-cart',[OrderController::class,'viewCart'])->name('view.cart');
 Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
