@@ -96,7 +96,7 @@
             <td>{{$data->created_at}}</td>
             <td>
                 
-                <a class="btn btn-warning" href="">Make payment</a>
+                <a class="btn btn-warning" href="{{route('make.payment',$data->id)}}">Make payment</a>
                 <a class="btn btn-success" href="{{route('profile.view.order',$data->id)}}">View Order</a>
             </td>
         </tr>
