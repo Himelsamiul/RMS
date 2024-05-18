@@ -13,9 +13,7 @@
                     <p>
                     Experience the flavors of the world with our exquisite culinary creations
                     </p>
-                    <div class="carousel-btn">
-                        <a class="btn custom-btn" href="{{route('all.menu')}}">View Menu</a>
-                    </div>
+                  
                 </div>
             </div>
             <div class="carousel-item">
@@ -27,10 +25,7 @@
                     <p>
                     Discover the artistry of cuisine as we delight your senses with our gastronomic delights.
                     </p>
-                    <div class="carousel-btn">
-                        <a class="btn custom-btn" href="">View Menu</a>
-                       
-                    </div>
+                    
                 </div>
             </div>
             <div class="carousel-item">
@@ -42,10 +37,7 @@
                     <p>
                     Hungry? Don't wait long! Our speedy delivery brings deliciousness to your doorstep
                     </p>
-                    <div class="carousel-btn">
-                        <a class="btn custom-btn" href="">View Menu</a>
-                       
-                    </div>
+                    
                 </div>
             </div>
         </div>

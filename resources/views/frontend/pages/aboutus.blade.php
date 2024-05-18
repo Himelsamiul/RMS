@@ -1,12 +1,12 @@
 @extends('frontend.webpage')
 
 @section('content')
-<div class="content-wrapper" style="margin-top: 100px;"> <!-- Adjust margin-top value as needed -->
+<div class="content-wrapper" style="margin-top: 100px;">
     <div class="about">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <div class="about-img">
+                    <div class="about-img animated-slide">
                         <img src="img/about.jpg" alt="Image" class="custom-img-height">
                         <button type="button" class="btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">
                             <span></span>
@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="about-content">
+                    <div class="about-content animated-slide">
                         <div class="section-header">
                             <p>About Us</p>
                             <h2>Cooking Since 2020</h2>
@@ -30,13 +30,26 @@
         </div>
     </div>
 </div>
-</div>
 
-<!-- Custom CSS to decrease image height -->
+<!-- Custom CSS to decrease image height and add animations -->
 <style>
     .custom-img-height {
         height: 300px; /* Adjust the height as needed */
     }
-</style>
 
+    /* Floating animation */
+    .animated-slide {
+        opacity: 0;
+        transform: translateY(-50px);
+        animation: slideDown 1s ease-out forwards;
+    }
+
+    /* Keyframes for the slide-down animation */
+    @keyframes slideDown {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
 @endsection

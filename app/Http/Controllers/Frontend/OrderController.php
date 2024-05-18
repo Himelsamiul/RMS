@@ -98,6 +98,7 @@ class OrderController extends Controller
 
     public function checkout()
     {
+        
         return view('frontend.pages.checkout');
     }
 
@@ -109,8 +110,8 @@ class OrderController extends Controller
         $cartData = session()->get('cart');
         //insert data into order table
         $order = Order::create([
-            'customer_id' => 1,
-            // 'customer_id'=>auth()->user()->id,
+            //'customer_id' => 1,
+            'customer_id'=>auth()->user()->id,
             'total_price' => array_sum(array_column($cartData, 'subtotal')),
             'payment_method' => $request->paymentMethod,
         ]);

@@ -38,7 +38,7 @@
 @csrf
 
 <div class="limiter" style="margin-top: 100px;">
-<div class="container-login100" style="">
+<div class="container-login100" >
 <div class="wrap-login100">
 <form class="login100-form validate-form">
 <span class="login100-form-logo">

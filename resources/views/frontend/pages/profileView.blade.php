@@ -9,7 +9,7 @@
                     <div class="card-title mb-4">
                         <div class="d-flex justify-content-start">
                             <div class="image-container">
-                                <img src="" alt="Upload Image" class="rounded-circle" width="150">
+                                <i class="fas fa-user-circle fa-5x"></i> <!-- User icon -->
                             </div>
                             <div class="userData ml-3">
                                 <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold"><a
@@ -96,6 +96,7 @@
             <td>{{$data->created_at}}</td>
             <td>
                 
+                <a class="btn btn-warning" href="">Make payment</a>
                 <a class="btn btn-success" href="{{route('profile.view.order',$data->id)}}">View Order</a>
             </td>
         </tr>

@@ -9,18 +9,18 @@
                 <h2>Contact For Any Query</h2>
             </div>
             <div class="row align-items-center contact-information">
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3 animated-slide">
                     <div class="contact-info">
                         <div class="contact-icon">
                             <i class="fa fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-text">
                             <h3>Address</h3>
-                            <p>Mirpur,Dhaka,Banglades</p>
+                            <p>Mirpur, Dhaka, Bangladesh</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3 animated-slide">
                     <div class="contact-info">
                         <div class="contact-icon">
                             <i class="fa fa-phone-alt"></i>
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3 animated-slide">
                     <div class="contact-info">
                         <div class="contact-icon">
                             <i class="fa fa-envelope"></i>
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-3">
+                <div class="col-md-6 col-lg-3 animated-slide">
                     <div class="contact-info">
                         <div class="contact-icon">
                             <i class="fa fa-share"></i>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row contact-form">
+            <div class="row contact-form animated-slide">
                 <div class="col-md-6">
                     <div id="success"></div>
                     <form name="sentMessage" id="contactForm" novalidate="novalidate">
@@ -92,7 +92,19 @@
 
 <!-- Custom CSS -->
 <style>
-    /* Add custom styles here */
-</style>
+    /* Floating animation */
+    .animated-slide {
+        opacity: 0;
+        transform: translateY(-50px);
+        animation: slideDown 1s ease-out forwards;
+    }
 
+    /* Keyframes for the slide-down animation */
+    @keyframes slideDown {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
 @endsection
