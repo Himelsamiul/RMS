@@ -126,6 +126,8 @@ class OrderController extends Controller
                 'quantity' => $data['quantity'],
                 'subtotal' => $data['subtotal'],
             ]);
+            $food=Menu::find($data['id']);
+            $food->decrement('quantity',$data['quantity']);
         }
 
         session()->forget('cart');

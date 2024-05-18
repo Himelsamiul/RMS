@@ -23,6 +23,7 @@
                             <h5 class="card-title">{{$data->name}}</h5>
                             <p class="card-text">{{$data->description}}</p>
                             <p class="card-text">{{$data->price}}&nbsp;BDT</p>
+                            
                             <a href="{{route('add.to.cart',$data->id)}}" class="btn btn-primary"
                                 data-mdb-ripple-init>Add To Cart</a>
                         </div>

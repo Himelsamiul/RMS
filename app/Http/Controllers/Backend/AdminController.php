@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Menu;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,7 +16,8 @@ class AdminController extends Controller
         $customer = Customer::count();
         $category = Category::count();
         $menu = Menu::count();
-        return view('backend.pages.dashboard', compact('customer', 'category', 'menu'));
+        $order = Order::count();
+        return view('backend.pages.dashboard', compact('customer', 'category', 'menu', 'order'));
     }
 
 

@@ -95,7 +95,7 @@
             <td>{{$data->payment_method}}</td>
             <td>{{$data->created_at}}</td>
             <td>
-                <a class="btn btn-danger" href="">Cancel Order</a>
+                
                 <a class="btn btn-success" href="{{route('profile.view.order',$data->id)}}">View Order</a>
             </td>
         </tr>

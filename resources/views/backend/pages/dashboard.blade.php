@@ -137,6 +137,35 @@
                 </a>
             </div>
         </div>
+
+        <div class="col-sm-6 col-lg-3 mb-4 ">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                            <h4 class="fw-normal text-red">{{ $order }}</h4>
+                            <p class="subtitle text-sm text-muted mb-0">Total order</p>
+                        </div>
+                        <div class="flex-shrink-0 ms-3">
+                            <div>
+                                <img class="img-fluid custom-small-img" src="" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="text-decoration-none" href="">
+                    <div class="card-footer py-3 bg-warning-light">
+                        <div class="row align-items-center text-red">
+                            <div class="col-10">
+                                <p class="mb-0">View Details</p>
+                            </div>
+                            <div class="col-2 text-end"><i class="fas fa-caret-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 
