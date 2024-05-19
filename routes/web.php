@@ -7,7 +7,7 @@ use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Frontend\WebpagerController;
-use App\Http\Frontend\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 
 /*
@@ -44,7 +44,6 @@ Route::middleware('auth:customerGuard')->group(function() {
 Route::get('/profile/view', [WebpagerController::class, 'profileview'])->name('profile.view');
 Route::get('/profile/view/order/{id}', [WebpagerController::class, 'profilevieworder'])->name('profile.view.order');
 Route::get('/customer/logout', [WebpagerController::class, 'logoutsuccess'])->name('logout.success');
-Route::get('/makepayment/{id}', [WebpagerController::class, 'makepayment'])->name('make.payment');
 
 
 //cart ar order er sob route eigula
@@ -54,6 +53,9 @@ Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
 Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.place');
 Route::get('/delete-order/{orderId}',[OrderController::class,'deleteOrder'])->name('delete.order');
 
+Route::get('/makepayment/{id}', [WebpagerController::class, 'makepayment'])->name('make.payment');
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+
 
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
@@ -62,7 +64,6 @@ Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheck
 Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
 Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
 
-Route::post('/success', [SslCommerzPaymentController::class, 'success']);
 Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
 Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
 
@@ -115,7 +116,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
         //orders
-        
+        Route::get('/orderlist',[AdminController::class,'orderlist'])->name('order.list');
 
 
         

@@ -212,7 +212,7 @@ class WebpagerController extends Controller
         $post_data = array();
         $post_data['total_amount'] =(int)$payment->total_price ; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
-        $post_data['tran_id'] = uniqid(); // tran_id must be unique
+        $post_data['tran_id'] = $payment->transaction_id; // tran_id must be unique
 
         # CUSTOMER INFORMATION
         $post_data['cus_name'] = $payment->user_id;

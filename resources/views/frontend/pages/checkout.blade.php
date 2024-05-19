@@ -47,7 +47,7 @@
                         <h6 class="my-0">Total</h6>
                         <small class="text-muted"></small>
                     </div>
-                    <span class="text-muted">${{ $total }}</span>
+                    <span class="text-muted">৳{{ $total }}</span>
                 </li>
             </ul>
             

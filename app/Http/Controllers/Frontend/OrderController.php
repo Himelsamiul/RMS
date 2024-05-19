@@ -112,6 +112,7 @@ class OrderController extends Controller
         $order = Order::create([
             //'customer_id' => 1,
             'customer_id'=>auth()->user()->id,
+            'transaction_id'=>date('YmdHis'),
             'total_price' => array_sum(array_column($cartData, 'subtotal')),
             'payment_method' => $request->paymentMethod,
         ]);
@@ -135,4 +136,9 @@ class OrderController extends Controller
         notify()->success('Order placed successfully.');
         return redirect()->route('home');
     }
+
+
+       
+
+
 }

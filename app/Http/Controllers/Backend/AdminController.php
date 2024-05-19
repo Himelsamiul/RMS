@@ -51,4 +51,13 @@ class AdminController extends Controller
         notify()->success('Logout successful');
         return view('backend.pages.login');
     }
+
+    public function orderlist()
+    {
+        // Retrieve all orders with their customer and order details
+        $list = Order::with(['customer', 'orderDetails'])->get();
+    
+        // Return the view with the list of orders
+        return view('backend.pages.orderlist', compact('list'));
+    }
 }

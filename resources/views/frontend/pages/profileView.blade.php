@@ -70,6 +70,7 @@
             <th scope="col">Order Number</th>
             <th scope="col">Total Price</th>
             <th scope="col">Status</th>
+            <th scope="col">Transanction ID</th>
             <th scope="col">Payment Method</th>
             <th scope="col">Date</th>
             <th scope="col">Action</th>
@@ -92,11 +93,13 @@
                 <span class="badge bg-warning text-white">Cancelled</span>
                 @endif
             </td>
+            <td>{{$data->transaction_id}}</td>
             <td>{{$data->payment_method}}</td>
             <td>{{$data->created_at}}</td>
             <td>
-                
+            @if ($data->payment_method == 'ssl') 
                 <a class="btn btn-warning" href="{{route('make.payment',$data->id)}}">Make payment</a>
+                @endif
                 <a class="btn btn-success" href="{{route('profile.view.order',$data->id)}}">View Order</a>
             </td>
         </tr>

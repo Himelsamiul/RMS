@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Frontend\Controllers;
+namespace App\Http\Controllers;
 
 use DB;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
+use App\Models\Order;
+use App\Models\OrderDetail;
 
 class SslCommerzPaymentController extends Controller
 {
@@ -161,21 +163,20 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
-        echo "Transaction is Successful";
+       //dd($request->all());
 
         $tran_id = $request->input('tran_id');
-        $amount = $request->input('amount');
+        $total_price = $request->input('total_price'); 
         $currency = $request->input('currency');
 
         $sslc = new SslCommerzNotification();
 
         #Check order status in order tabel against the transaction id or order id.
-        $order_details = DB::table('orders')
-            ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'status', 'currency', 'amount')->first();
+        $order_details = Order::Where('transaction_id',$tran_id)->first();
+           //dd($order_details);
 
-        if ($order_details->status == 'Pending') {
-            $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);
+        if ($order_details->status == 'pending') {
+            $validation = $sslc->orderValidate($request->all(),$tran_id, $total_price, $currency);
 
             if ($validation) {
                 /*
@@ -183,13 +184,13 @@ class SslCommerzPaymentController extends Controller
                 in order table as Processing or Complete.
                 Here you can also sent sms or email for successfull transaction to customer
                 */
-                $update_product = DB::table('orders')
-                    ->where('transaction_id', $tran_id)
-                    ->update(['status' => 'Processing']);
-
-                echo "<br >Transaction is successfully Completed";
+                $$order_details->update([
+                'status'=>'paid'
+                ]);
+               notify()->success('payment succesful');
+               return redirect()->route('profile.view');
             }
-        } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
+        } else if ($order_details->status == 'Processing' || $order_details->status == 'paid') {
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
