@@ -36,7 +36,7 @@
                             <h6 class="my-0">Subtotal</h6>
                             <small class="text-muted"></small>
                         </div>
-                        <span class="text-muted">${{ $item['subtotal'] }}</span>
+                        <span class="text-muted">৳{{ $item['subtotal'] }}</span>
                     </li>
                     @php
                         $total += $item['subtotal'];

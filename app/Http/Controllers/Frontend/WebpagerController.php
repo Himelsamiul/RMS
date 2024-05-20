@@ -113,7 +113,7 @@ class WebpagerController extends Controller
 
         notify()->success('registration Successfully.');
 
-        return redirect()->back();
+        return redirect()->route('customer.login');
     }
 
 

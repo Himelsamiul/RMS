@@ -134,7 +134,7 @@ class OrderController extends Controller
 
         session()->forget('cart');
         notify()->success('Order placed successfully.');
-        return redirect()->route('home');
+        return redirect()->route('profile.view');
     }
 
 
