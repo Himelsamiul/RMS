@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CustomerController;
@@ -117,6 +118,9 @@ Route::group(['prefix' => 'admin'], function () {
 
         //orders
         Route::get('/orderlist',[AdminController::class,'orderlist'])->name('order.list');
+
+
+        Route::get('/report-list',[ReportController::class,'reportList'])->name('report.list');
 
 
         
