@@ -73,6 +73,7 @@
             <th scope="col">Status</th>
             <th scope="col">Transanction ID</th>
             <th scope="col">Payment Method</th>
+            <th scope="col">Payment Status</th>
             <th scope="col">Date</th>
             <th scope="col">Action</th>
         </tr>
@@ -96,6 +97,7 @@
             </td>
             <td>{{$data->transaction_id}}</td>
             <td>{{$data->payment_method}}</td>
+            <td>{{$data->payment_status}}</td>
             <td>{{$data->created_at}}</td>
             <td>
             

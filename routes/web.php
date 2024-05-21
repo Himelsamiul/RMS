@@ -8,7 +8,7 @@ use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Frontend\WebpagerController;
-use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\Frontend\SslCommerzPaymentController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
 
 /*
@@ -55,7 +55,6 @@ Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.p
 Route::get('/delete-order/{orderId}',[OrderController::class,'deleteOrder'])->name('delete.order');
 
 //Route::get('/makepayment/{id}', [WebpagerController::class, 'makepayment'])->name('make.payment');
-Route::post('/success', [SslCommerzPaymentController::class, 'success']);
 
 
 // SSLCOMMERZ Start
@@ -64,6 +63,7 @@ Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheck
 
 Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
 Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
 
 Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
 Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);

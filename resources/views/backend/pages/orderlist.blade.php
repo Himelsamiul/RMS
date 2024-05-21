@@ -2,6 +2,9 @@
 @section('content')
 
 <div>
+  <h1>All Order Report</h1>
+<button onclick="printReport()" class="btn btn-primary mt-3">Print </button>
+
 <table class="table">
   <thead>
     
@@ -12,6 +15,7 @@
       <th scope="col">Quantity</th>
       <th scope="col">Total Price</th>
       <th scope="col">Transaction ID</th>
+      <th scope="col">Status</th>
       <th scope="col">Payment Method</th>
       <th scope="col">Payment Status</th>
     </tr>
@@ -27,8 +31,9 @@
       <td>{{ $detail->quantity }}</td>
       <td>{{ $order->total_price }}</td>
       <td>{{ $order->transaction_id }}</td>
-      <td>{{ $order->payment_method }}</td>
       <td>{{ $order->status }}</td>
+      <td>{{ $order->payment_method }}</td>
+      <td>{{ $order->payment_status }}</td>
     </tr>
     @endforeach
   @endforeach
@@ -36,5 +41,9 @@
   </tbody>
 </table>
 </div>
-
+<script>
+        function printReport() {
+            window.print();
+        }
+    </script>
 @endsection

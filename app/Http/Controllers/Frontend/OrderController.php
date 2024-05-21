@@ -7,7 +7,6 @@ use App\Models\Menu;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use Illuminate\Http\Request;
-use App\Models\Order_details;
 use App\Http\Controllers\Controller;
 use App\Library\SslCommerz\SslCommerzNotification;
 

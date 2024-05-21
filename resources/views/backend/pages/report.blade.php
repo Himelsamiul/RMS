@@ -1,40 +1,30 @@
 @extends('backend.master')
+
 @section('content')
 
-<div>
-    <a href="" type="button" class="btn btn-dark">Print</a>
-    <div class="col-xl-3 float-end">
-                            <button onclick="printContent('printDiv')" class="btn btn-light text-capitalize border-0"
-                                data-mdb-ripple-color="dark"><i class="fas fa-print text-primary"></i> Print</button>
-                        </div>
-</div>
+    <div class="container">
+        <h1>Monthly Report</h1>
+        
+        @if($topFood)
+            <div class="card">
+                <div class="card-header">
+                    <h2>Top Selling Food of the Month</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Food Name:</strong> {{ $topFood->name }}</p>
+                    <p><strong>Total Quantity Sold:</strong> {{ $topFood->total_quantity }}</p>
+                </div>
+            </div>
+            <!-- Print Button -->
+            <button onclick="printReport()" class="btn btn-primary mt-3">Print Report</button>
+        @else
+            <p>No sales data available for this month.</p>
+        @endif
+    </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Customer Name</th>
-      <th scope="col">Food Name</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Total Price</th>
-      <th scope="col">Top Selling Food</th>
-    </tr>
-  </thead>
-  <tbody>
-
- 
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-   
-
-  </tbody>
-</table>
+    <script>
+        function printReport() {
+            window.print();
+        }
+    </script>
 @endsection
