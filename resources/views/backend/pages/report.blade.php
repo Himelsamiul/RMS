@@ -3,6 +3,10 @@
 
 <div>
     <a href="" type="button" class="btn btn-dark">Print</a>
+    <div class="col-xl-3 float-end">
+                            <button onclick="printContent('printDiv')" class="btn btn-light text-capitalize border-0"
+                                data-mdb-ripple-color="dark"><i class="fas fa-print text-primary"></i> Print</button>
+                        </div>
 </div>
 
 <table class="table">

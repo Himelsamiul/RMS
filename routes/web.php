@@ -54,7 +54,7 @@ Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
 Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.place');
 Route::get('/delete-order/{orderId}',[OrderController::class,'deleteOrder'])->name('delete.order');
 
-Route::get('/makepayment/{id}', [WebpagerController::class, 'makepayment'])->name('make.payment');
+//Route::get('/makepayment/{id}', [WebpagerController::class, 'makepayment'])->name('make.payment');
 Route::post('/success', [SslCommerzPaymentController::class, 'success']);
 
 

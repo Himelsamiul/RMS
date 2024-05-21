@@ -18,6 +18,7 @@
                         </div>
                     </div>
                     <!-- User Information Display -->
+                    
                     <div class="row">
                         <div class="col-sm-3 col-md-2 col-5">
                             <label style="font-weight:bold;">Full Name</label>
@@ -97,9 +98,7 @@
             <td>{{$data->payment_method}}</td>
             <td>{{$data->created_at}}</td>
             <td>
-            @if ($data->payment_method == 'ssl') 
-                <a class="btn btn-warning" href="{{route('make.payment',$data->id)}}">Make payment</a>
-                @endif
+            
                 <a class="btn btn-success" href="{{route('profile.view.order',$data->id)}}">View Order</a>
             </td>
         </tr>

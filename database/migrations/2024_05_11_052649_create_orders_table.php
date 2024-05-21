@@ -15,9 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('transaction_id')->unique();
             $table->integer('customer_id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('address');
+            $table->string('phone')->nullable();
             $table->double('total_price');
             $table->string('payment_method');
-            $table->enum('status', ['pending', 'shipped', 'delivered', 'cancelled'])->default('pending');
+            $table->string('payment_status')->default('pending');
+            $table->string('status' )->default('pending');
             $table->timestamps();
         });
     }
