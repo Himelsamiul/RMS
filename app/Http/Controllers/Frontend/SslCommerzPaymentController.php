@@ -163,7 +163,7 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
-       //dd($request->all());
+        // dd($request->all());
 
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount'); 
@@ -172,10 +172,11 @@ class SslCommerzPaymentController extends Controller
         $sslc = new SslCommerzNotification();
 
         #Check order status in order tabel against the transaction id or order id.
-        $order = Order::find($tran_id);
-           //dd($order_details);
+        $order = Order::where('transaction_id',$tran_id)->first();
+        // dd($order);
 
         if ($order->status == 'pending') {
+            // dd('AMi eikahane');
             $validation = $sslc->orderValidate($request->all(),$tran_id, $amount, $currency);
 
             if ($validation) {
@@ -184,9 +185,11 @@ class SslCommerzPaymentController extends Controller
                 in order table as Processing or Complete.
                 Here you can also sent sms or email for successfull transaction to customer
                 */
-                $$order->update([
-                'paymnet_status'=>'success'
+                $order->update([
+                'payment_status'=>'success'
                 ]);
+            
+                session()->forget('cart');
                notify()->success('payment succesful');
                return redirect()->route('profile.view');
             }

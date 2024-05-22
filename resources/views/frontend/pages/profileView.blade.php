@@ -70,7 +70,6 @@
             <th scope="col">#</th>
             <th scope="col">Order Number</th>
             <th scope="col">Total Price</th>
-            <th scope="col">Status</th>
             <th scope="col">Transanction ID</th>
             <th scope="col">Payment Method</th>
             <th scope="col">Payment Status</th>
@@ -84,23 +83,18 @@
             <th scope="row">{{$key+1}}</th>
             <th scope="row">Order-{{$data->id}}</th>
             <td>{{$data->total_price}}</td>
-            <td>
-                @if ($data->status == 'pending')
-                <span class="badge bg-danger text-white">{{ $data->status }}</span>
-                @elseif ($data->status == 'shipped')
-                <span class="badge bg-primary">{{ $data->status }}</span>
-                @elseif ($data->status == 'delivered')
-                <span class="badge bg-success">{{ $data->status }}</span>
-                @else
-                <span class="badge bg-warning text-white">Cancelled</span>
-                @endif
-            </td>
             <td>{{$data->transaction_id}}</td>
             <td>{{$data->payment_method}}</td>
-            <td>{{$data->payment_status}}</td>
+            <td>
+                @if($data->payment_status == 'success')
+                paid
+                @else
+                {{$data->payment_status}}
+                @endif
+                
+            </td>
             <td>{{$data->created_at}}</td>
             <td>
-            
                 <a class="btn btn-success" href="{{route('profile.view.order',$data->id)}}">View Order</a>
             </td>
         </tr>

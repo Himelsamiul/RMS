@@ -53,6 +53,7 @@ Route::get('/view-cart',[OrderController::class,'viewCart'])->name('view.cart');
 Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
 Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.place');
 Route::get('/delete-order/{orderId}',[OrderController::class,'deleteOrder'])->name('delete.order');
+Route::get('/clear-order',[OrderController::class,'clearCart'])->name('cart.clear');
 
 //Route::get('/makepayment/{id}', [WebpagerController::class, 'makepayment'])->name('make.payment');
 

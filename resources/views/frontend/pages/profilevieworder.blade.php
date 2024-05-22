@@ -26,7 +26,7 @@
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
                                         class="fw-bold">Phone No:</span> {{ auth()->user()->phoneno }} </li>
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                                        class="fw-bold">Phone No:</span> {{ auth()->user()->address }} </li>
+                                        class="fw-bold">Address:</span> {{ auth()->user()->address }} </li>
                             </ul>
                         </div>
                         <div class="table-responsive">
@@ -57,7 +57,7 @@
         </div>
     </div>
 </div>
-@endsection
+
 @push('yourJsCode')
 
 <script type="text/javascript">
@@ -71,3 +71,4 @@
 
 </script>
 @endpush
+@endsection

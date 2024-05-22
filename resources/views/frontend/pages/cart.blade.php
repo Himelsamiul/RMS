@@ -11,7 +11,7 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
           <div>
-            <a href="" class="btn btn-danger">Clear Cart</a>
+            <a href="{{route('cart.clear')}}" class="btn btn-danger">Clear Cart</a>
             <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
           </div>
         </div>
