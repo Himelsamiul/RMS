@@ -68,7 +68,7 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Order Number</th>
+           
             <th scope="col">Total Price</th>
             <th scope="col">Transanction ID</th>
             <th scope="col">Payment Method</th>
@@ -81,7 +81,7 @@
         @foreach($orders as $key => $data)
         <tr>
             <th scope="row">{{$key+1}}</th>
-            <th scope="row">Order-{{$data->id}}</th>
+            
             <td>{{$data->total_price}}</td>
             <td>{{$data->transaction_id}}</td>
             <td>{{$data->payment_method}}</td>

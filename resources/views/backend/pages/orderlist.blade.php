@@ -15,7 +15,7 @@
       <th scope="col">Quantity</th>
       <th scope="col">Total Price</th>
       <th scope="col">Transaction ID</th>
-      <th scope="col">Status</th>
+      
       <th scope="col">Payment Method</th>
       <th scope="col">Payment Status</th>
     </tr>
@@ -31,7 +31,7 @@
       <td>{{ $detail->quantity }}</td>
       <td>{{ $order->total_price }}</td>
       <td>{{ $order->transaction_id }}</td>
-      <td>{{ $order->status }}</td>
+     
       <td>{{ $order->payment_method }}</td>
       <td>{{ $order->payment_status }}</td>
     </tr>

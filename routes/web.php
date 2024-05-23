@@ -50,6 +50,7 @@ Route::get('/customer/logout', [WebpagerController::class, 'logoutsuccess'])->na
 //cart ar order er sob route eigula
 Route::get('/add-to-cart/{productId}',[OrderController::class, 'addToCart'])->name('add.to.cart');
 Route::get('/view-cart',[OrderController::class,'viewCart'])->name('view.cart');
+Route::post('/update-cart', [OrderController::class, 'updateCart'])->name('update.cart');
 Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
 Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.place');
 Route::get('/delete-order/{orderId}',[OrderController::class,'deleteOrder'])->name('delete.order');

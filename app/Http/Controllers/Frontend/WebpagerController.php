@@ -65,16 +65,21 @@ class WebpagerController extends Controller
             'password' => 'required',
             'phone' => 'required|regex:/(01)[0-9]{9}/',
             'address' => 'required',
-            'dob' => 'required|date',
 
-            'status' => 'required',
+
+
         ]);
 
         if ($checkValidation->fails()) {
-
-            notify()->error($checkValidation->getMessageBag());
+            if ($checkValidation->errors()->has('email')) {
+                notify()->error('The email has already been taken.');
+            }else {
+                // Notify the user about other validation errors
+                notify()->error('Something went wrong.');
+            }
+            // notify()->error($checkValidation->getMessageBag());
             // notify()->error('somethings went wrong');
-            return redirect()->back();
+            return redirect()->back()->with('myError', $checkValidation->getMessageBag());
         }
 
         $fileNameCustomer = '';
@@ -94,21 +99,12 @@ class WebpagerController extends Controller
 
 
         Customer::Create([
-
-
-
-
-
             'name' => $request->name,
             'email' => strtolower($request->email),
             'password' => bcrypt($request->password),
             'phoneno' => $request->phone,
             'address' => $request->address,
-            'dob' => $request->dob,
             'image' => $fileNameCustomer,
-            'status' => $request->status,
-
-
         ]);
 
         notify()->success('registration Successfully.');
@@ -198,12 +194,4 @@ class WebpagerController extends Controller
         $orders = Order::with('orderDetails')->where('customer_id', $user->id)->get();
         return view('frontend.pages.profileView', compact('orders', 'user'));
     }
-
-
-     
-    
-
-    
-
-
 }

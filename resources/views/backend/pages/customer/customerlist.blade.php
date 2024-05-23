@@ -27,8 +27,8 @@
       <th scope="col">Phone Number</th>
       
       <th scope="col">Address</th>
-      <th scope="col">DOB</th>
-      <th scope="col">Status</th>
+      
+      
       <th scope="col">Image</th>
      
     </tr>
@@ -47,8 +47,8 @@
       <td>{{$Customer->phoneno}}</td>
      
       <td>{{$Customer->address}}</td>
-      <td>{{$Customer->dob}}</td>
-      <td>{{$Customer->status}}</td>
+  
+      
       <td><img width="70px" src="{{url('/app/image/customer/'.$Customer->image)}}" alt=""></td>
       
       

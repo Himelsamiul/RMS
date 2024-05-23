@@ -94,7 +94,30 @@ class OrderController extends Controller
 
     public function viewCart()
     {
-        return view('frontend.pages.cart');
+        $cart = session()->get('cart', []);
+
+        if (empty($cart)) {
+            return view('frontend.pages.cart', ['cartIsEmpty' => true]);
+        }
+        return view('frontend.pages.cart', ['cartIsEmpty' => false, 'cart' => $cart]);
+
+    }
+
+    public function updateCart(Request $request)
+    {
+        $cart = session()->get('cart');
+        $cartId = $request->input('cartId');
+        $newQuantity = $request->input('quantity');
+
+        if (isset($cart[$cartId])) {
+            $cart[$cartId]['quantity'] = $newQuantity;
+            $cart[$cartId]['subtotal'] = $cart[$cartId]['price'] * $newQuantity;
+            session()->put('cart', $cart);
+
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false]);
     }
 
     public function clearCart()
@@ -112,6 +135,7 @@ class OrderController extends Controller
 
     public function placeOrder(Request $request)
     {
+        // dd($request->all());
         //validation
         try {
             $cartData = session()->get('cart');
@@ -120,7 +144,7 @@ class OrderController extends Controller
                 //'customer_id' => 1,
                 'customer_id' => auth()->user()->id,
                 'transaction_id' => date('YmdHis'),
-                'name' => $request->first_name,
+                'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'address' => $request->address,
@@ -167,7 +191,7 @@ class OrderController extends Controller
         $post_data['tran_id'] = $order->transaction_id; // tran_id must be unique
 
         # CUSTOMER INFORMATION
-        $post_data['cus_name'] = $order->first_name;
+        $post_data['cus_name'] = $order->name;
         $post_data['cus_email'] = $order->email;
         $post_data['cus_add1'] = $order->address;;
         $post_data['cus_add2'] = "";
