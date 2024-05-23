@@ -12,46 +12,28 @@ use App\Library\SslCommerz\SslCommerzNotification;
 
 class OrderController extends Controller
 {
-    public function  addToCart($productId)
+    public function addToCart($productId)
     {
-
-
         $product = Menu::find($productId);
-        $myCart = session()->get('cart');
+        $myCart = session()->get('cart', []);
 
-        if (empty($myCart)) {
-            //1. add to cart
-            $newCart[$productId] = [
-                'id' => $productId,
-                'name' => $product->name,
-                'price' => $product->price,
-                'image' => $product->image,
-                'quantity' => 1,
-                'subtotal' => $product->price * 1
-            ];
+        if (!$product) {
+            notify()->error('Product not found.');
+            return redirect()->back();
+        }
 
-            // dd($newCart);
+        if ($product->quantity < 1) {
+            notify()->error('Product is out of stock.');
+            return redirect()->back();
+        }
 
-            session()->put('cart', $newCart);
-
-            notify()->success('Product added to cart successfully.');
+        // Check if the product is already in the cart
+        if (isset($myCart[$productId])) {
+            notify()->error('Product is already in the cart.');
             return redirect()->back();
         } else {
-            //check product exist or not
-            if (array_key_exists($productId, $myCart)) {
-                //update quantity
-
-
-                $myCart[$productId]['quantity'] = $myCart[$productId]['quantity'] + 1;
-                $myCart[$productId]['subtotal'] = $myCart[$productId]['quantity'] * $myCart[$productId]['price'];
-
-                session()->put('cart', $myCart);
-
-                notify()->success('Food quantity updated.');
-                return redirect()->back();
-            } else {
-
-                //add to cart new food
+            // Add new product to cart
+            if ($product->quantity >= 1) {
                 $myCart[$productId] = [
                     'id' => $productId,
                     'name' => $product->name,
@@ -63,11 +45,15 @@ class OrderController extends Controller
 
                 session()->put('cart', $myCart);
 
-                notify()->success('New Food added to cart successfully.');
+                notify()->success('Product added to cart successfully.');
+                return redirect()->back();
+            } else {
+                notify()->error('Cannot add more than available stock.');
                 return redirect()->back();
             }
         }
     }
+
 
     public function deleteOrder($orderId)
     {
@@ -100,14 +86,36 @@ class OrderController extends Controller
             return view('frontend.pages.cart', ['cartIsEmpty' => true]);
         }
         return view('frontend.pages.cart', ['cartIsEmpty' => false, 'cart' => $cart]);
-
     }
+
+    // public function updateCart(Request $request)
+    // {
+    //     $cart = session()->get('cart');
+    //     $cartId = $request->input('cartId');
+    //     $newQuantity = $request->input('quantity');
+
+    //     if (isset($cart[$cartId])) {
+    //         $cart[$cartId]['quantity'] = $newQuantity;
+    //         $cart[$cartId]['subtotal'] = $cart[$cartId]['price'] * $newQuantity;
+    //         session()->put('cart', $cart);
+
+    //         return response()->json(['success' => true]);
+    //     }
+
+    //     return response()->json(['success' => false]);
+    // }
 
     public function updateCart(Request $request)
     {
         $cart = session()->get('cart');
         $cartId = $request->input('cartId');
         $newQuantity = $request->input('quantity');
+
+        $product = Menu::find($cartId);
+
+        if (!$product || $newQuantity > $product->quantity) {
+            return response()->json(['success' => false, 'message' => 'Quantity exceeds available stock.']);
+        }
 
         if (isset($cart[$cartId])) {
             $cart[$cartId]['quantity'] = $newQuantity;
@@ -119,6 +127,7 @@ class OrderController extends Controller
 
         return response()->json(['success' => false]);
     }
+
 
     public function clearCart()
     {
