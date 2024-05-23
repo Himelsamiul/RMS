@@ -3,6 +3,12 @@
 @section('content')
 
 <style>
+    @media print{
+        #print{
+            display: none;
+        }
+    }
+
     .report-container {
         max-width: 800px;
         margin: 50px auto;
@@ -66,7 +72,7 @@
             </div>
         </div>
         <!-- Print Button -->
-        <button onclick="printReport()" class="btn btn-primary mt-3">Print Report</button>
+        <button id="print" onclick="printReport()" class="btn btn-primary mt-3">Print Report</button>
     @else
         <p class="no-data">No sales data available for this month.</p>
     @endif
