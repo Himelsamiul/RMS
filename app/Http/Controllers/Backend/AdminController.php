@@ -54,6 +54,7 @@ class AdminController extends Controller
 
     public function orderlist()
     {
+        
         // Retrieve all orders with their customer and order details
         $list = Order::with(['customer', 'orderDetails'])->get();
     

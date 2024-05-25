@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Frontend\Contactcontroller;
 use App\Http\Controllers\Frontend\WebpagerController;
 use App\Http\Controllers\Frontend\SslCommerzPaymentController;
 use App\Http\Controllers\Frontend\OrderController as FrontendOrderController;
@@ -55,6 +56,10 @@ Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
 Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.place');
 Route::get('/delete-order/{orderId}',[OrderController::class,'deleteOrder'])->name('delete.order');
 Route::get('/clear-order',[OrderController::class,'clearCart'])->name('cart.clear');
+
+//Route::get('/contact/Form', [Contactcontroller::class, 'contactform'])->name('contact.form');
+//Route::post('/contact/submit', [Contactcontroller::class, 'submit'])->name('contact.submit');
+
 
 //Route::get('/makepayment/{id}', [WebpagerController::class, 'makepayment'])->name('make.payment');
 
