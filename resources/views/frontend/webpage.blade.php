@@ -25,6 +25,14 @@
 
     <!-- Template Stylesheet -->
     <link href="{{url('css/style.css')}}" rel="stylesheet">
+    <style>  
+    .notify {
+            z-index: 9999;
+            /* align-items: flex-end; */
+            /* align-items: center; */
+            justify-content: start;
+        }
+        </style>
 </head>
 
 <body>

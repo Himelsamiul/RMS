@@ -75,7 +75,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="address">Address</label>
-                    <input value="{{ auth()->user()->address }}" name="address" type="text" class="form-control" id="address" placeholder="1234 Main St" required="" readonly>
+                    <input value="{{ auth()->user()->address }}" name="address" type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
                     <div class="invalid-feedback"> Please enter your shipping address. </div>
                 </div>
 

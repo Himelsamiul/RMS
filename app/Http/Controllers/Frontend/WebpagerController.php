@@ -178,14 +178,13 @@ class WebpagerController extends Controller
 
 
 
-
     public function profilevieworder($id)
     {
-
         $orderview = OrderDetail::with('menu')->where('order_id', $id)->get();
-        // dd($orderview);
-        return view('frontend.pages.profilevieworder', compact('orderview'));
+        $order = Order::find($id); // Retrieve the specific order by ID
+        return view('frontend.pages.profilevieworder', compact('orderview', 'order'));
     }
+    
 
     public function profileview()
     {
