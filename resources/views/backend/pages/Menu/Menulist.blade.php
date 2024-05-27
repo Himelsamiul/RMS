@@ -52,7 +52,7 @@
       <td>
       <a href="{{route('menu.view',$menu->id)}}" class="btn btn-primary">View</a>
 
-        <a href="" class="btn btn-secondary">Edit</a>
+      <a href="{{route('menu.editview',$menu->id)}}" class="btn btn-secondary">Edit</a>
         <a href="{{route('menu.delete',$menu->id)}}" class="btn btn-danger">Delete</a>
       </td>
     </tr>

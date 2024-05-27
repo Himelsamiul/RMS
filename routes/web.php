@@ -113,6 +113,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/menu/list', [MenuController::class, 'list'])->name('menu.list');
         Route::get('/menu/form', [MenuController::class, 'form'])->name('menu.form');
         Route::post('/menu/form', [MenuController::class, 'store'])->name('menu.store');
+
+
+        Route::get('/menu/edit/{id}', [MenuController::class, 'menueditview'])->name('menu.editview');
+        Route::put('/menu/edit/update/{id}', [MenuController::class, 'menuupdate'])->name('menu.edit.update');
+
         Route::get('/menu/delete{id}', [MenuController::class, 'menudelete'])->name('menu.delete');
         Route::get('/menu/view/{id}', [MenuController::class, 'menuview'])->name('menu.view');
 

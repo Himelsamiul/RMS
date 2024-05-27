@@ -36,7 +36,7 @@ class CategoryController extends Controller
         $checkValidation=Validator::make($request->all(),[
            'name'=>'required',
            'description'=>'required',
-           'quantity'=>'required|gt:0',
+           //'quantity'=>'required|gt:0',
            
 
         ]);
@@ -73,7 +73,7 @@ class CategoryController extends Controller
             'name'=>$request->name,
             'description'=>$request->description,
             'image'=>$fileName,
-            'quantity'=>$request->quantity,
+            //'quantity'=>$request->quantity,
             
       
         ]);
@@ -117,7 +117,7 @@ public function categoryeditview($id){
    $checkValidation=Validator::make($request->all(),[
     'name'=>'required',
     'description'=>'required',
-    'quantity'=>'required|gt:0',
+    //'quantity'=>'required|gt:0',
     
 
  ]);
@@ -150,7 +150,7 @@ public function categoryeditview($id){
     'name'=>$request->name,
     'description'=>$request->description,
     'image'=>$fileName,
-    'quantity'=>$request->quantity,
+    //'quantity'=>$request->quantity,
     
 ]);
     notify()->success('update successful');

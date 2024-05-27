@@ -56,9 +56,6 @@
 
  
 
-  <label for="quantity">Quantity:</label>
-  <input type="number" id="quantity" value="{{$catdetails->quantity}}" name="quantity" min="1" required>
-
   
 
   <label for="image">Image URL:</label>

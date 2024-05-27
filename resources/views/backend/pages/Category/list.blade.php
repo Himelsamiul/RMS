@@ -13,7 +13,7 @@
       <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
-      <th scope="col">Quantity</th>
+    
      
       <th scope="col">Image</th>
       <th scope="col">Action</th>
@@ -27,7 +27,7 @@
       <td>{{$category->id}}</td>
       <td>{{$category->name}}</td>
       <td>{{$category->description}}</td>
-      <td>{{$category->quantity}}</td>
+  
       <td>
         <img width="70px" src="{{url('/app/image/category/'.$category->image)}}" alt="">
       </td>

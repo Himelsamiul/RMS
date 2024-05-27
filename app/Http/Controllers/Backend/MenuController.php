@@ -110,6 +110,70 @@ class MenuController extends Controller
         }
         
 
+        public function menueditview($id){
+    
+            $menudetails=Menu::find($id);
+            
+            return view('backend.pages.menu.menueditview',compact('menudetails'));
+            
+        
+        }
+
+
+
+        public function menuupdate(Request $request,$id){
+            $menudetails=Menu::find($id);
+         
+            $checkValidation=Validator::make($request->all(),[
+                'name'=>'required',
+                'category_id'=>'required',
+                'price'=>'required|gt:1',
+                'description'=>'required',
+                'status'=>'required',
+                'quantity'=>'required|gt:1',
+          ]);
+         
+          if($checkValidation->fails()){
+         
+              notify()->error($checkValidation->getMessageBag());
+              // notify()->error('somethings went wrong');
+              return redirect()->back();
+         
+             
+             }//validation end
+         
+             $fileNameMenu='';
+        
+        if($request->hasFile('image'))  //name of image form
+        {
+            //generate name i.e: 20240416170933.jpeg
+            $fileNameMenu=date('YmdHis').'.'.$request->file('image')->getClientOriginalExtension();
+           
+             //2.3: store it into public folder
+             $request->file('image')->storeAs('/menu',$fileNameMenu);
+             //public/uploads/category/20244394343.png
+
+
+
+        }
+            $menudetails->update([
+         
+             'name'=>$request->name,
+             'categoryid'=>$request->category_id,
+            'price'=>$request->price,
+            'description'=>$request->description,
+            'status'=>$request->status,
+            'quantity'=>$request->quantity,
+            'image'=>$fileNameMenu,
+             
+         ]);
+             notify()->success('update successful');
+            return redirect()->route('menu.list');
+           }
+
+
+
+           
 
         public function menuview($id){
 
