@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Library\SslCommerz\SslCommerzNotification;
+use App\Models\Contact;
 
 class WebpagerController extends Controller
 {

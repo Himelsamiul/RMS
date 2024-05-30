@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Feedback;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Feedbackcontroller;
 use App\Http\Controllers\Backend\MenuController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\ReportController;
@@ -28,6 +30,8 @@ Route::get('/', [WebpagerController::class, 'webpage'])->name('home');
 Route::get('/about-us', [WebpagerController::class, 'aboutus'])->name('aboutus');
 Route::get('/menu', [WebpagerController::class, 'menu'])->name('all.menu');
 Route::get('/contact', [WebpagerController::class, 'contact'])->name('contact');
+Route::post('/contact/send', [Feedbackcontroller::class, 'sendMessage'])->name('contact.send');
+
 Route::get('/category/menu/{id}', [WebpagerController::class, 'categorymenu'])->name('category.menu');
 
 //customer er registration er form eigulo

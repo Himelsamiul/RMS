@@ -18,6 +18,7 @@
       
       <th scope="col">Payment Method</th>
       <th scope="col">Payment Status</th>
+      <th scope="col">Shipping Address</th>
     </tr>
   </thead>
   <tbody>
@@ -34,6 +35,7 @@
      
       <td>{{ $order->payment_method }}</td>
       <td>{{ $order->payment_status }}</td>
+      <td>{{ $order->address }}</td>
     </tr>
     @endforeach
   @endforeach
