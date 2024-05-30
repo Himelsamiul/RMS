@@ -20,7 +20,17 @@
     <link rel="stylesheet" href="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/css/custom.0a822280.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="https://d19m59y37dris4.cloudfront.net/bubbly/1-3-2/img/favicon.png">
+    <style>  
+    .notify {
+            z-index: 9999;
+            /* align-items: flex-end; */
+            /* align-items: center; */
+            justify-content: start;
+        }
+        </style>
   </head>
+
+
   <body>
     <!-- navbar-->
    

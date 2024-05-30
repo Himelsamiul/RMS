@@ -63,7 +63,7 @@ class WebpagerController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'phone' => 'required|regex:/(01)[0-9]{9}/',
+            'phone' => 'required|regex:/^(01)[3-9]\d{8}$/',
             'address' => 'required',
 
 

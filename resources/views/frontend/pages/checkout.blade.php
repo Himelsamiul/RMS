@@ -70,7 +70,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="phoneno">Phone Number <span class="text-muted">(Optional)</span></label>
-                    <input value="{{ auth()->user()->phoneno }}" name="phone" type="text" class="form-control" id="phoneno" placeholder="1234567890" readonly>
+                    <input value="0{{ auth()->user()->phoneno }}" name="phone" type="text" class="form-control" id="phoneno" placeholder="1234567890" readonly>
                     <div class="invalid-feedback"> Please enter a valid phone number for shipping updates. </div>
                 </div>
                 <div class="mb-3">

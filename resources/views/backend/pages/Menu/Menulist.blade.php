@@ -26,7 +26,7 @@
       <th scope="col">Price</th>
       <th scope="col">Description</th>
       
-      <th scope="col">Status</th>
+      
       <th scope="col">Quantity</th>
       <th scope="col">Image</th>
     </tr>
@@ -45,7 +45,7 @@
       <td>{{$menu->category->name}}</td>
       <td>{{$menu->price}}.BDT</td>
       <td>{{$menu->description}}</td>    
-      <td>{{$menu->status}}</td>
+      
       <td>{{$menu->quantity}}</td>
       <td>
         <img width="70px" src="{{url('/app/image/menu/'.$menu->image)}}" alt="">

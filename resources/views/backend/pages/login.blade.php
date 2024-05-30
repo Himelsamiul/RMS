@@ -7,7 +7,8 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #71b7e6, #9b59b6); /* Gradient background */
+      background: url('/r2.jpg') no-repeat center center fixed; /* Add your image path here */
+      background-size: cover; /* Cover the entire area */
       margin: 0;
       padding: 0;
       display: flex;
@@ -28,7 +29,7 @@
     }
 
     .login-container {
-      background-color: #d6e9f8;
+      background-color: rgba(255, 255, 255, 0.4); /* Adjust the alpha value for transparency */
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);

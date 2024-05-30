@@ -2,7 +2,7 @@
 @section('content')
 
 <div>
-  <h1>All Order Report</h1>
+  <h1 style="color: #0033FF">All Order Report</h1>
 <button onclick="printReport()" class="btn btn-primary mt-3">Print </button>
 
 <table class="table">

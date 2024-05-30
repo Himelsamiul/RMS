@@ -2,32 +2,32 @@
 @section('content')
 
 <style>
-/* Light color scheme for the cards */
+
 .card {
-    background-color: #f8f9fa; /* Light background color */
-    border: 1px solid #e0e0e0; /* Light border color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 10px; /* Reduce the margin */
-    padding: 15px; /* Reduce the padding */
-    max-width: 250px; /* Set a maximum width to make the card smaller */
+    background-color: rgba(248, 249, 250, 0.3); 
+    border: 1px solid rgba(224, 224, 224, 0.1); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin: 10px; 
+    padding: 15px; 
+    max-width: 250px; 
 }
 
 /* Adjust card image */
 .card-img-top {
     object-fit: cover; 
-    height: 150px; /* Reduce the height of the image */
+    height: 150px; 
     width: 100%;
 }
 
 /* Card title and text */
 .card-title,
 .card-text {
-    color: #333; /* Dark text color for contrast */
+    color: #EAE86F; /* cart er text er colour change korbo */
 }
 
 /* Primary button */
 .btn-primary {
-    background-color: #007bff; /* Light blue background color */
+    background-color: #007bff; 
     border-color: #007bff;
 }
 
@@ -35,14 +35,32 @@
     background-color: #0056b3; /* Darker blue on hover */
     border-color: #0056b3;
 }
+
+/* Move heading to the right */
+.heading {
+    text-align: right; 
+    margin-right: -300px; /* heading ta placed korbo */
+    padding-right: 20px; 
+}
+
+/* Background image for the page */
+body {
+    background-image: url('/p.jpg'); /* image set korbo */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+}
 </style>
 
 <div class="container-fluid fruite py-5">
     <div class="container py-5">
         <div class="tab-class text-center">
             <div class="row">
-                <div class="col-lg-4 text-start">
-                    <h1>Our Menu's</h1>
+                <div class="col-lg-4">
+                    <h1 class="heading" style="color: #EAE86F; font-family: 'Arial', sans-serif; font-size: 36px; text-shadow: 2px 2px 4px #aaa;">
+                        Our Menu's
+                    </h1>
                 </div>
             </div>
             <div class="row">

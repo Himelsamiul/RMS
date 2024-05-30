@@ -59,12 +59,12 @@
 </style>
 
 <div class="report-container">
-    <h1>Monthly Report</h1>
+    <h1 style="color: #0033FF">Monthly Report</h1>
 
     @if($topFood)
         <div class="card">
             <div class="card-header">
-                <h2>Top Selling Food of the Month</h2>
+                <h2 >Top Selling Food of the Month</h2>
             </div>
             <div class="card-body">
                 <p><strong>Food Name:</strong> {{ $topFood->name }}</p>

@@ -24,7 +24,7 @@
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
                                         class="fw-bold">Phone:</span> {{ auth()->user()->email }}</li>
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
-                                        class="fw-bold">Phone No:</span> {{ auth()->user()->phoneno }} </li>
+                                        class="fw-bold">Phone No:</span> 0{{ auth()->user()->phoneno }} </li>
 
 
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span

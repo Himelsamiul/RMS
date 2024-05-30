@@ -36,6 +36,7 @@ Route::post('/customer/done', [WebpagerController::class, 'reg'])->name('custome
 
 Route::get('/customer/login', [WebpagerController::class, 'login'])->name('customer.login');
 Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->name('customer.success');
+
 //Route::post('/customer/success', [WebpagerController::class, 'loginsuccess'])->name('customer.success');
 
 
@@ -56,9 +57,6 @@ Route::get('/checkout',[OrderController::class,'checkout'])->name('checkout');
 Route::post('/place-order',[OrderController::class,'placeOrder'])->name('order.place');
 Route::get('/delete-order/{orderId}',[OrderController::class,'deleteOrder'])->name('delete.order');
 Route::get('/clear-order',[OrderController::class,'clearCart'])->name('cart.clear');
-
-//Route::get('/contact/Form', [Contactcontroller::class, 'contactform'])->name('contact.form');
-//Route::post('/contact/submit', [Contactcontroller::class, 'submit'])->name('contact.submit');
 
 
 //Route::get('/makepayment/{id}', [WebpagerController::class, 'makepayment'])->name('make.payment');
@@ -113,7 +111,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/menu/list', [MenuController::class, 'list'])->name('menu.list');
         Route::get('/menu/form', [MenuController::class, 'form'])->name('menu.form');
         Route::post('/menu/form', [MenuController::class, 'store'])->name('menu.store');
-
+//menu er CRUD korsi
 
         Route::get('/menu/edit/{id}', [MenuController::class, 'menueditview'])->name('menu.editview');
         Route::put('/menu/edit/update/{id}', [MenuController::class, 'menuupdate'])->name('menu.edit.update');
@@ -121,14 +119,14 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/menu/delete{id}', [MenuController::class, 'menudelete'])->name('menu.delete');
         Route::get('/menu/view/{id}', [MenuController::class, 'menuview'])->name('menu.view');
 
-        //customer
+        //customer er info ,kintu get ar post amar lagbe nah ,karon ami front end e kaj korsi
         Route::get('/customer/list', [CustomerController::class, 'list'])->name('customer.list');
         Route::get('/customer/form', [CustomerController::class, 'form'])->name('customer.form');
         Route::post('/customer/form', [CustomerController::class, 'store'])->name('customer.store');
         Route::get('/customer/delete{id}', [CustomerController::class, 'delete'])->name('customer.delete');
 
 
-        //orders
+        //orders korsi
         Route::get('/orderlist',[AdminController::class,'orderlist'])->name('order.list');
 
 

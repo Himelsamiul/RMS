@@ -73,9 +73,7 @@
   <input type="text" id="description" name="description" required placeholder="">
 
 
-  <label for="status">status:</label>
-  <input type="text" id="status" name="status" required>
-
+  
 
   <label for="quantity">Quantity:</label>
   <input type="number" id="quantity" name="quantity" required>

@@ -37,8 +37,8 @@ class MenuController extends Controller
             'category_id'=>'required',
             'price'=>'required|gt:1',
             'description'=>'required',
-            'status'=>'required',
-            'quantity'=>'required|gt:1',
+           
+            'quantity'=>'required|gt:0',
             
         ]);
 
@@ -78,7 +78,7 @@ class MenuController extends Controller
             'categoryid'=>$request->category_id,
             'price'=>$request->price,
             'description'=>$request->description,
-            'status'=>$request->status,
+            
             'quantity'=>$request->quantity,
             'image'=>$fileNameMenu,
     
@@ -129,8 +129,8 @@ class MenuController extends Controller
                 'category_id'=>'required',
                 'price'=>'required|gt:1',
                 'description'=>'required',
-                'status'=>'required',
-                'quantity'=>'required|gt:1',
+              
+                'quantity'=>'required|gt:0',
           ]);
          
           if($checkValidation->fails()){
@@ -162,7 +162,7 @@ class MenuController extends Controller
              'categoryid'=>$request->category_id,
             'price'=>$request->price,
             'description'=>$request->description,
-            'status'=>$request->status,
+            
             'quantity'=>$request->quantity,
             'image'=>$fileNameMenu,
              

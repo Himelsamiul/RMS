@@ -29,7 +29,7 @@
       <th scope="col">Address</th>
       
       
-      <th scope="col">Image</th>
+      
      
     </tr>
   </thead>
@@ -44,12 +44,12 @@
       <td>{{$Customer->name}}</td>
       <td>{{$Customer->email}}</td>
       
-      <td>{{$Customer->phoneno}}</td>
+      <td>0{{$Customer->phoneno}}</td>
      
       <td>{{$Customer->address}}</td>
   
       
-      <td><img width="70px" src="{{url('/app/image/customer/'.$Customer->image)}}" alt=""></td>
+      
       
       
     </tr>

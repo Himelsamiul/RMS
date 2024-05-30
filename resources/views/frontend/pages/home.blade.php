@@ -1,9 +1,24 @@
 @extends('frontend.webpage')
 
 @section('content')
+
 <div class="carousel">
     <div class="container-fluid">
         <div class="owl-carousel">
+            
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="img/carousel-2.jpg" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h1>Bangladeshi’s <span>Best</span> Chef</h1>
+                    <p>
+                    Discover the artistry of cuisine as we delight your senses with our gastronomic delights.
+                    </p>
+                    
+                </div>
+            </div>
+
             <div class="carousel-item">
                 <div class="carousel-img">
                     <img src="{img/carousel-1.jpg" alt="Image">
@@ -14,18 +29,6 @@
                     Experience the flavors of the world with our exquisite culinary creations
                     </p>
                   
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="img/carousel-2.jpg" alt="Image">
-                </div>
-                <div class="carousel-text">
-                    <h1>World’s <span>Best</span> Chef</h1>
-                    <p>
-                    Discover the artistry of cuisine as we delight your senses with our gastronomic delights.
-                    </p>
-                    
                 </div>
             </div>
             <div class="carousel-item">
@@ -248,7 +251,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="img/team-1.jpg" alt="Image">
+                        <img src="rrr.jpg" alt="Image">
                         <div class="team-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -257,24 +260,7 @@
                         </div>
                     </div>
                     <div class="team-text">
-                        <h2>Adam Phillips</h2>
-                        <p>CEO, Co Founder</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="team-item">
-                    <div class="team-img">
-                        <img src="img/team-2.jpg" alt="Image">
-                        <div class="team-social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="team-text">
-                        <h2>Dylan Adams</h2>
+                        <h2>Tommey Miah</h2>
                         <p>Master Chef</p>
                     </div>
                 </div>
@@ -282,7 +268,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="img/team-3.jpg" alt="Image">
+                        <img src="c1.jpg" alt="Image">
                         <div class="team-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -291,7 +277,7 @@
                         </div>
                     </div>
                     <div class="team-text">
-                        <h2>Jhon Doe</h2>
+                        <h2>Ahmed hossain</h2>
                         <p>Master Chef</p>
                     </div>
                 </div>
@@ -299,7 +285,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="team-item">
                     <div class="team-img">
-                        <img src="img/team-4.jpg" alt="Image">
+                        <img src="me.jpg" alt="Image">
                         <div class="team-social">
                             <a href=""><i class="fab fa-twitter"></i></a>
                             <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -308,7 +294,24 @@
                         </div>
                     </div>
                     <div class="team-text">
-                        <h2>Josh Dunn</h2>
+                        <h2>Miraz Ahamed</h2>
+                        <p>Master Chef</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="niso.jpg" alt="Image">
+                        <div class="team-social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-text">
+                        <h2>Rafsan Haque</h2>
                         <p>Master Chef</p>
                     </div>
                 </div>

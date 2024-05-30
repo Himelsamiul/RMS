@@ -78,10 +78,7 @@
 
 
 
-            <div class="mb-3">
-                <label for="image" class="form-label">Image</label>
-                <input class="form-control" type="file" id="image" name="image">
-            </div>
+            
 
 
             <button type="submit" class="btn btn-primary">Submit</button>

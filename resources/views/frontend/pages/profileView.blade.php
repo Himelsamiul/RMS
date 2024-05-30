@@ -42,7 +42,7 @@
                             <label style="font-weight:bold;">Contact Info</label>
                         </div>
                         <div class="col-md-8 col-6">
-                            {{ auth()->user()->phoneno }}
+                            0{{ auth()->user()->phoneno }}
                         </div>
                     </div>
                     <hr />

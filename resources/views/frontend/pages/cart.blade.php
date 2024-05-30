@@ -8,7 +8,7 @@
             <div class="col-10">
 
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+                    <h3 class="fw-normal mb-0 text-black">Your Cart</h3>
                     <div>
                         <a href="{{ route('cart.clear') }}" class="btn btn-danger">Clear Cart</a>
                         <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i

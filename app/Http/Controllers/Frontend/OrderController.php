@@ -59,19 +59,19 @@ class OrderController extends Controller
     {
         $cartData = session()->get('cart', []);
 
-        // Find the index of the item with the provided order ID in the cart array
+        // index er item cart theke khujbo
         $index = array_search($orderId, array_column($cartData, 'id'));
 
-        // If the item is found in the cart
+        // jodi  item is found in the cart
         if ($index !== false) {
-            // Remove the item from the cart array
+            //  cart array theke remove korbo
             unset($cartData[$index]);
             // Update the cart data in the session
-            session(['cart' => array_values($cartData)]); // Re-index the array after removing the item
+            session(['cart' => array_values($cartData)]); 
 
             notify()->success('Item deleted from cart successfully.');
         } else {
-            // Optionally, handle the case where the item with the provided order ID is not found in the cart
+            
             notify()->error('Item not found in cart.');
         }
 
@@ -88,22 +88,11 @@ class OrderController extends Controller
         return view('frontend.pages.cart', ['cartIsEmpty' => false, 'cart' => $cart]);
     }
 
-    // public function updateCart(Request $request)
-    // {
-    //     $cart = session()->get('cart');
-    //     $cartId = $request->input('cartId');
-    //     $newQuantity = $request->input('quantity');
+   
 
-    //     if (isset($cart[$cartId])) {
-    //         $cart[$cartId]['quantity'] = $newQuantity;
-    //         $cart[$cartId]['subtotal'] = $cart[$cartId]['price'] * $newQuantity;
-    //         session()->put('cart', $cart);
 
-    //         return response()->json(['success' => true]);
-    //     }
 
-    //     return response()->json(['success' => false]);
-    // }
+    
 
     public function updateCart(Request $request)
     {
