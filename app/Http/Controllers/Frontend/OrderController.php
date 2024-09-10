@@ -95,27 +95,36 @@ class OrderController extends Controller
     
 
     public function updateCart(Request $request)
-    {
-        $cart = session()->get('cart');
-        $cartId = $request->input('cartId');
-        $newQuantity = $request->input('quantity');
+{
+    $cart = session()->get('cart');
+    $cartId = $request->input('cartId');
+    $newQuantity = $request->input('quantity');
 
-        $product = Menu::find($cartId);
+    // Find the product from the Menu (database)
+    $product = Menu::find($cartId);
 
-        if (!$product || $newQuantity > $product->quantity) {
-            return response()->json(['success' => false, 'message' => 'Quantity exceeds available stock.']);
-        }
-
-        if (isset($cart[$cartId])) {
-            $cart[$cartId]['quantity'] = $newQuantity;
-            $cart[$cartId]['subtotal'] = $cart[$cartId]['price'] * $newQuantity;
-            session()->put('cart', $cart);
-
-            return response()->json(['success' => true]);
-        }
-
-        return response()->json(['success' => false]);
+    // Check if the product exists and if the requested quantity exceeds the stock
+    if (!$product || $newQuantity > $product->quantity) {
+        return response()->json(['success' => false, 'message' => 'Quantity exceeds available stock.']);
     }
+
+    // Ensure the customer can't add more than 10 of the same item to the cart
+    if ($newQuantity > 10) {
+        return response()->json(['success' => false, 'message' => 'You can only add up to 10 of the same item.']);
+    }
+
+    // If the item is in the cart, update the quantity and subtotal
+    if (isset($cart[$cartId])) {
+        $cart[$cartId]['quantity'] = $newQuantity;
+        $cart[$cartId]['subtotal'] = $cart[$cartId]['price'] * $newQuantity;
+        session()->put('cart', $cart);
+
+        return response()->json(['success' => true]);
+    }
+
+    return response()->json(['success' => false, 'message' => 'Item not found in cart.']);
+}
+
 
 
     public function clearCart()
