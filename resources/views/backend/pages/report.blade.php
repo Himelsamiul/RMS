@@ -86,19 +86,22 @@
     }
 
     /* Animation */
-    @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-30px);
+        }
+        60% {
+            transform: translateY(-15px);
+        }
     }
 
-    .highlight-card {
-        animation: fadeIn 1.5s ease-in-out;
-        border: 2px solid #1e90ff; /* Light blue border */
-    }
-
-    .normal-card {
-        opacity: 0.9;
-        animation: fadeIn 1s ease-in-out;
+    .emoji {
+        font-size: 2em; /* Adjust size as needed */
+        display: inline-block;
+        animation: bounce 1.5s infinite;
     }
 </style>
 
@@ -138,17 +141,36 @@
             <div class="card-body">
                 <p><strong>Food Name:</strong> {{ $topFood->name }}</p>
                 <p><strong>Total Quantity Sold:</strong> {{ $topFood->total_quantity }}</p>
+                <p><strong>Date Range:</strong> {{ \Carbon\Carbon::parse($startDate)->format('d M Y') }} to {{ \Carbon\Carbon::parse($endDate)->format('d M Y') }}</p>
             </div>
         </div>
 
         <!-- Print Button -->
         <button id="print" onclick="printReport()" class="btn btn-primary mt-3">Print Report</button>
     @else
-        <p class="no-data mt-4">No sales data available for this period.</p>
+        <p class="no-data mt-4">
+            <span class="emoji">😔</span> No sales data available for this period.
+        </p>
     @endif
 </div>
 
+<!-- Audio Elements -->
+<audio id="noDataSound" src="{{ asset('Sound/music.wav') }}" preload="auto"></audio>
+
 <script>
+    // Function to play sound effect
+    function playSound() {
+        var sound = document.getElementById('noDataSound');
+        sound.play();
+    }
+
+    // Play sound effect when no data is available
+    document.addEventListener('DOMContentLoaded', function() {
+        if (document.querySelector('.no-data')) {
+            playSound();
+        }
+    });
+
     function printReport() {
         window.print();
     }

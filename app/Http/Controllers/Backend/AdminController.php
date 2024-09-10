@@ -54,11 +54,22 @@ class AdminController extends Controller
 
     public function orderlist()
     {
+        $orders = Order::with('orderDetails.menu')->get();
         
-        // Retrieve all orders with their customer and order details
-        $list = Order::with(['customer', 'orderDetails'])->get();
+        // Get unique food names for labels
+        $labels = $orders->flatMap(function($order) {
+            return $order->orderDetails->pluck('menu.name');
+        })->unique();
+        
+        // Prepare data for the chart
+        $data = $labels->map(function($label) use ($orders) {
+            return $orders->flatMap(function($order) use ($label) {
+                return $order->orderDetails->where('menu.name', $label)->pluck('quantity');
+            })->sum();
+        });
     
-        // Return the view with the list of orders
-        return view('backend.pages.orderlist', compact('list'));
+        return view('backend.pages.orderlist', compact('orders', 'labels', 'data'));
     }
+    
+    
 }
