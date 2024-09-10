@@ -3,8 +3,8 @@
 @section('content')
 
 <style>
-    @media print{
-        #print{
+    @media print {
+        #print {
             display: none;
         }
     }
@@ -13,68 +13,138 @@
         max-width: 800px;
         margin: 50px auto;
         padding: 20px;
-        background-color: #f9f9f9;
+        background-color: #f0f8ff; /* Light blue background */
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     h1 {
         text-align: center;
         margin-bottom: 30px;
-        color: #333;
+        color: #1e90ff; /* DodgerBlue for main title */
+        font-family: 'Arial', sans-serif;
+        font-size: 2.5em;
     }
+
     .card {
         border: none;
-        background-color: #fff;
+        background-color: #ffffff; /* White card background */
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
+
     .card-header {
-        background-color: #007bff;
+        background-color: #4682b4; /* SteelBlue header */
         color: #fff;
         border-radius: 10px 10px 0 0;
         padding: 15px;
+        font-size: 1.5em;
     }
+
     .card-body {
         padding: 20px;
+        font-family: 'Arial', sans-serif;
     }
+
     .card-body p {
-        font-size: 1.1em;
-        color: #333;
+        font-size: 1.2em;
+        color: #2f4f4f; /* DarkSlateGray text color */
     }
+
     .btn-primary {
         width: 100%;
         padding: 10px;
         border-radius: 5px;
-        background-color: #007bff;
+        background-color: #32cd32; /* LimeGreen button */
         border: none;
+        color: white;
+        font-size: 1.2em;
     }
+
     .btn-primary:hover {
-        background-color: #0056b3;
+        background-color: #228b22; /* Darker green on hover */
     }
+
     .no-data {
         text-align: center;
-        font-size: 1.2em;
-        color: #777;
+        font-size: 1.5em;
+        color: #dc143c; /* Crimson red for no data */
+        margin-top: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        color: #4682b4; /* SteelBlue label text */
+    }
+
+    input[type="date"] {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 8px;
+        color: #4682b4;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    .highlight-card {
+        animation: fadeIn 1.5s ease-in-out;
+        border: 2px solid #1e90ff; /* Light blue border */
+    }
+
+    .normal-card {
+        opacity: 0.9;
+        animation: fadeIn 1s ease-in-out;
     }
 </style>
 
 <div class="report-container">
-    <h1 style="color: #0033FF">Monthly Report</h1>
+    <h1>Monthly Report</h1>
+
+    <!-- Date Range Filter Form -->
+    <form method="GET" action="{{ route('report.list') }}">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="start_date">Start Date:</label>
+                <input type="date" name="start_date" id="start_date" class="form-control"
+                       value="{{ old('start_date', $startDate ?? '') }}" required>
+                @if($errors->has('start_date'))
+                    <small class="text-danger">{{ $errors->first('start_date') }}</small>
+                @endif
+            </div>
+
+            <div class="col-md-6">
+                <label for="end_date">End Date:</label>
+                <input type="date" name="end_date" id="end_date" class="form-control"
+                       value="{{ old('end_date', $endDate ?? '') }}" required>
+                @if($errors->has('end_date'))
+                    <small class="text-danger">{{ $errors->first('end_date') }}</small>
+                @endif
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Filter Report</button>
+    </form>
 
     @if($topFood)
-        <div class="card">
+        <div class="card mt-4 {{ $dynamicClass }}">
             <div class="card-header">
-                <h2 >Top Selling Food of the Month</h2>
+                <h2>Top Selling Food of the Selected Period</h2>
             </div>
             <div class="card-body">
                 <p><strong>Food Name:</strong> {{ $topFood->name }}</p>
                 <p><strong>Total Quantity Sold:</strong> {{ $topFood->total_quantity }}</p>
             </div>
         </div>
+
         <!-- Print Button -->
         <button id="print" onclick="printReport()" class="btn btn-primary mt-3">Print Report</button>
     @else
-        <p class="no-data">No sales data available for this month.</p>
+        <p class="no-data mt-4">No sales data available for this period.</p>
     @endif
 </div>
 
