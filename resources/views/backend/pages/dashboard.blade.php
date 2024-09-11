@@ -132,6 +132,13 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
+        /* Clock styling */
+        .clock {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
@@ -187,6 +194,11 @@
             <p class="emoji">✨</p>
         </div>
 
+        <!-- Clock Section -->
+        <div class="clock text-center">
+            <p id="liveClock"></p>
+        </div>
+
         <!-- Chart Section -->
         <div class="chart-container">
             <h2>Monthly Sales Report</h2>
@@ -196,9 +208,25 @@
 
     <!-- Include Chart.js -->
     <script src="{{ asset('node_modules/chart.js/dist/chart.min.js') }}"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Update clock every second
+            function updateClock() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                const timeString = `${hours}:${minutes}:${seconds}`;
+                document.getElementById('liveClock').textContent = timeString;
+            }
+
+            // Initial call to display the clock immediately
+            updateClock();
+
+            // Update clock every second
+            setInterval(updateClock, 1000);
+
+            // Initialize the sales chart
             var ctx = document.getElementById('salesChart').getContext('2d');
             var salesChart = new Chart(ctx, {
                 type: 'pie',
