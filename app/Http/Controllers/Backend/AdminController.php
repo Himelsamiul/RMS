@@ -8,17 +8,35 @@ use App\Models\Customer;
 use App\Models\Menu;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     public function admin()
     {
+        // Fetch the counts for dashboard stats
         $customer = Customer::count();
         $category = Category::count();
         $menu = Menu::count();
         $order = Order::count();
-        return view('backend.pages.dashboard', compact('customer', 'category', 'menu', 'order'));
+    
+        // Fetch orders and their details for the order list
+        $orders = Order::with('orderDetails.menu', 'customer')->get();
+    
+        // Prepare data for the pie chart
+        // Example: Group orders by payment method
+        $paymentMethods = Order::select('payment_method', DB::raw('count(*) as total'))
+            ->groupBy('payment_method')
+            ->pluck('total', 'payment_method')
+            ->toArray();
+    
+        $labels = array_keys($paymentMethods);
+        $data = array_values($paymentMethods);
+    
+        // Pass data to the view
+        return view('backend.pages.dashboard', compact('customer', 'category', 'menu', 'order', 'orders', 'labels', 'data'));
     }
+    
 
 
     public function login()

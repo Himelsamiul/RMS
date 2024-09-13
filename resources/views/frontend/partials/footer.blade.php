@@ -11,7 +11,7 @@
                                     <p><i class="fa fa-envelope"></i>himel@gmail.com</p>
                                     <div class="footer-social">
                                         <a href=""><i class="fab fa-twitter"></i></a>
-                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href="https://www.facebook.com/samiul.alam.184"><i class="fab fa-facebook-f"></i></a>
                                         <a href=""><i class="fab fa-youtube"></i></a>
                                         <a href=""><i class="fab fa-instagram"></i></a>
                                         <a href=""><i class="fab fa-linkedin-in"></i></a>
