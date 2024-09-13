@@ -26,7 +26,6 @@
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
                                         class="fw-bold">Phone No:</span> 0{{ auth()->user()->phoneno }} </li>
 
-
                                 <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
                                         class="fw-bold">Address:</span> {{ $order->address }} </li>
                             </ul>
@@ -35,13 +34,14 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>menu name</th>
-                                        <th>Unit price</th>
+                                        <th>Menu Name</th>
+                                        <th>Unit Price</th>
                                         <th>Quantity</th>
                                         <th>Subtotal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php $total = 0; @endphp
                                     @foreach($orderview as $data)
                                     <tr>
                                         <td>{{ $data->menu->name }}</td>
@@ -49,9 +49,32 @@
                                         <td>{{ $data->quantity }}</td>
                                         <td>{{ $data->subtotal }}</td>
                                     </tr>
+                                    @php
+                                        $total += $data->subtotal;
+                                    @endphp
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                        
+                        <!-- Discount Section -->
+                        <div class="row">
+                            <div class="col-md-6 text-end">
+                                <strong>Discount:</strong>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ $order->discount }} BDT</p>
+                            </div>
+                        </div>
+
+                        <!-- Final Total Price -->
+                        <div class="row">
+                            <div class="col-md-6 text-end">
+                                <strong>Total (After Discount):</strong>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{ $total - $order->discount }} BDT</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,16 +84,14 @@
 </div>
 
 @push('yourJsCode')
-
 <script type="text/javascript">
     function printContent(el){
-          var restorepage = $('body').html();
-          var printcontent = $('#' + el).clone();
-          $('body').empty().html(printcontent);
-          window.print();
-          $('body').html(restorepage);
-      }
-
+        var restorepage = $('body').html();
+        var printcontent = $('#' + el).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
 </script>
 @endpush
 @endsection

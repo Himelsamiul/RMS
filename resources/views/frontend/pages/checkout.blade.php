@@ -42,12 +42,35 @@
                 $total += $item['subtotal'];
                 @endphp
                 @endforeach
+                
+                <!-- Discount Calculation (Promo Code) -->
+                @php
+                $discount = session('discount', 0);  // Fetch discount from session, default is 0
+                $finalTotal = $total - $discount;   // Calculate final total after discount
+                @endphp
+
+                <!-- Total without discount -->
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">Total</h6>
-                        <small class="text-muted"></small>
                     </div>
                     <span class="text-muted">৳{{ $total }}</span>
+                </li>
+
+                <!-- Discount applied -->
+                @if($discount > 0)
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                        <h6 class="my-0">Discount</h6>
+                    </div>
+                    <span class="text-muted">-৳{{ $discount }}</span>
+                </li>
+                @endif
+
+                <!-- Final total after discount -->
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (after discount)</span>
+                    <strong>৳{{ $finalTotal }}</strong>
                 </li>
             </ul>
         </div>
@@ -59,37 +82,48 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="firstName">Name</label>
-                        <input value="{{ auth()->user()->name }}" name="name" type="text" class="form-control" id="firstName" placeholder="" value="" required="" readonly>
+                        <input value="{{ auth()->user()->name }}" name="name" type="text" class="form-control" id="firstName" placeholder="" required readonly>
                         <div class="invalid-feedback"> Valid first name is required. </div>
                     </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input value="{{ auth()->user()->email }}" name="email" type="email" class="form-control" id="email" placeholder="you@example.com" readonly>
+                    <input value="{{ auth()->user()->email }}" name="email" type="email" class="form-control" id="email" readonly>
                     <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="phoneno">Phone Number <span class="text-muted">(Optional)</span></label>
-                    <input value="0{{ auth()->user()->phoneno }}" name="phone" type="text" class="form-control" id="phoneno" placeholder="1234567890" readonly>
+                    <input value="0{{ auth()->user()->phoneno }}" name="phone" type="text" class="form-control" id="phoneno" readonly>
                     <div class="invalid-feedback"> Please enter a valid phone number for shipping updates. </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="address">Address</label>
-                    <input value="{{ auth()->user()->address }}" name="address" type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                    <input value="{{ auth()->user()->address }}" name="address" type="text" class="form-control" id="address" placeholder="1234 Main St" required>
                     <div class="invalid-feedback"> Please enter your shipping address. </div>
                 </div>
 
-                <hr class="mb-4">
+                <!-- Promo Code Input -->
+                <div class="mb-3">
+                    <label for="promo_code">Promo Code</label>
+                    <input type="text" name="promo_code" class="form-control" id="promo_code" placeholder="Enter promo code">
+                    @if(session('promo_error'))
+                        <small class="text-danger">{{ session('promo_error') }}</small>
+                    @endif
+                </div>
 
                 <hr class="mb-4">
+
                 <h4 class="mb-3">Payment</h4>
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
-                        <input value="cod" id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                        <input value="cod" id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
                         <label class="custom-control-label" for="credit">Cash on delivery</label>
                     </div>
                     <div class="custom-control custom-radio">
-                        <input value="ssl" id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                        <input value="ssl" id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
                         <label class="custom-control-label" for="debit">SSL</label>
                     </div>
                 </div>
@@ -111,4 +145,3 @@
 </div>
 
 @endsection
-

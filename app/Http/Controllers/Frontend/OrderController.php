@@ -55,6 +55,11 @@ class OrderController extends Controller
     }
 
 
+
+
+
+
+
     public function deleteOrder($orderId)
     {
         $cartData = session()->get('cart', []);
@@ -140,30 +145,53 @@ class OrderController extends Controller
     }
 
 
+
+
+
+
     public function placeOrder(Request $request)
     {
-        // dd($request->all());
-        //validation
         try {
             $cartData = session()->get('cart');
-            //insert data into order table
+    
+            // Check if the cart is empty
+            if (empty($cartData)) {
+                notify()->error('Your cart is empty.');
+                return redirect()->back();
+            }
+    
+            // Check if the promo code is valid (if any)
+            $discount = 0; // Default discount is 0
+            if ($request->filled('promo_code')) {
+                $promoCode = $request->promo_code;
+    
+                // Example: Promo code for 30 BDT discount
+                if ($promoCode == 'DISCOUNT50') {
+                    $discount = 50; // Apply a flat 30 BDT discount
+                } else {
+                    // If promo code is invalid, return an error message
+                    return redirect()->back()->with('promo_error', 'Invalid promo code.');
+                }
+            }
+    
+            // Calculate the total price
+            $totalPrice = array_sum(array_column($cartData, 'subtotal')) - $discount;
+    
+            // Insert data into order table
             $order = Order::create([
-                //'customer_id' => 1,
                 'customer_id' => auth()->user()->id,
                 'transaction_id' => date('YmdHis'),
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'address' => $request->address,
-                'transaction_id' => date('YmdHis'),
-                'total_price' => array_sum(array_column($cartData, 'subtotal')),
+                'total_price' => $totalPrice,
+                'discount' => $discount, // Store the discount applied
                 'payment_method' => $request->paymentMethod,
                 'status' => 'pending',
             ]);
-
-            //insert cart data into order details table
-
-
+    
+            // Insert cart data into order details table
             foreach ($cartData as $data) {
                 OrderDetail::create([
                     'order_id' => $order->id,
@@ -172,21 +200,28 @@ class OrderController extends Controller
                     'quantity' => $data['quantity'],
                     'subtotal' => $data['subtotal'],
                 ]);
+    
+                // Update stock quantity
                 $food = Menu::find($data['id']);
                 $food->decrement('quantity', $data['quantity']);
             }
-
+    
+            // Clear the cart after placing the order
             session()->forget('cart');
-
+    
+            // Payment handling
             if ($request->paymentMethod == 'ssl') {
                 $this->payNow($order);
             }
+    
             notify()->success('Order placed successfully.');
             return redirect()->route('profile.view');
+    
         } catch (Throwable $exception) {
             dd($exception->getMessage());
         }
     }
+    
 
 
     public function payNow($order)

@@ -133,11 +133,17 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Clock styling */
-        .clock {
-            font-size: 24px;
-            color: #333;
-            margin-top: 20px;
+        /* Digital Clock Styling */
+        .digital-clock {
+            font-size: 2em;
+            text-align: center;
+            font-weight: bold;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -194,9 +200,9 @@
             <p class="emoji">✨</p>
         </div>
 
-        <!-- Clock Section -->
-        <div class="clock text-center">
-            <p id="liveClock"></p>
+        <!-- Digital Clock Section -->
+        <div class="digital-clock" id="digitalClock">
+            <!-- Time will be inserted here by JavaScript -->
         </div>
 
         <!-- Chart Section -->
@@ -210,23 +216,20 @@
     <script src="{{ asset('node_modules/chart.js/dist/chart.min.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Update clock every second
-            function updateClock() {
+            // Function to update the digital clock
+            function updateDigitalClock() {
                 const now = new Date();
                 const hours = String(now.getHours()).padStart(2, '0');
                 const minutes = String(now.getMinutes()).padStart(2, '0');
                 const seconds = String(now.getSeconds()).padStart(2, '0');
-                const timeString = `${hours}:${minutes}:${seconds}`;
-                document.getElementById('liveClock').textContent = timeString;
+                document.getElementById('digitalClock').textContent = `${hours}:${minutes}:${seconds}`;
             }
 
-            // Initial call to display the clock immediately
-            updateClock();
+            // Initial clock setup
+            updateDigitalClock();
+            setInterval(updateDigitalClock, 1000);
 
-            // Update clock every second
-            setInterval(updateClock, 1000);
-
-            // Initialize the sales chart
+            // Chart.js code for monthly sales report
             var ctx = document.getElementById('salesChart').getContext('2d');
             var salesChart = new Chart(ctx, {
                 type: 'pie',
