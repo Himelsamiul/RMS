@@ -1,9 +1,41 @@
 @extends('frontend.webpage')
 @section('content')
 
+<style>
+    .promo-code-info {
+        margin-bottom: 0px;
+        padding: 10px;
+        background-color: #f8f9fa; /* Light background for better readability */
+        border-radius: 5px;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: bold;
+        animation: blink-animation 1.5s infinite; /* Apply blinking animation */
+    }
+
+    @keyframes blink-animation {
+        0% { background-color: #f8f9fa; }
+        50% { background-color: #ffeb3b; } /* Blinking color (yellow) */
+        100% { background-color: #f8f9fa; }
+    }
+
+    .container {
+        margin-top: 20px; /* Add margin to the top of the container */
+    }
+
+    @media (max-width: 768px) {
+        .promo-code-info {
+            font-size: 1rem; /* Adjust font size for smaller screens */
+        }
+    }
+</style>
+
 <div class="container">
 
     <div class="py-5 text-center">
+        <div class="promo-code-info">
+            Use promo code <strong>"DISCOUNT50"</strong> for 50TK off in any order!
+        </div>
     </div>
 
     <div class="row" style="margin-top: 100px;">
