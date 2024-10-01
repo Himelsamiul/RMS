@@ -148,36 +148,41 @@ class OrderController extends Controller
 
 
 
-
     public function placeOrder(Request $request)
     {
         try {
             $cartData = session()->get('cart');
-    
+            
             // Check if the cart is empty
             if (empty($cartData)) {
                 notify()->error('Your cart is empty.');
                 return redirect()->back();
             }
     
-            // Check if the promo code is valid (if any)
-            $discount = 0; // Default discount is 0
-            if ($request->filled('promo_code')) {
-                $promoCode = $request->promo_code;
+            // Validate the request data
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'nullable|email',
+                'phone' => 'nullable|string|max:15',
+                'address' => 'required|string|max:255',
+                'paymentMethod' => 'required|string|in:cod,ssl',
+            ]);
     
-                // Example: Promo code for 30 BDT discount
-                if ($promoCode == 'DISCOUNT50') {
-                    $discount = 50; // Apply a flat 30 BDT discount
-                } else {
-                    // If promo code is invalid, return an error message
-                    return redirect()->back()->with('promo_error', 'Invalid promo code.');
-                }
+            // Calculate the total price before discount
+            $totalPrice = array_sum(array_column($cartData, 'subtotal'));
+    
+            // Initialize discount and final total
+            $discount = 0; // Default discount is 0
+            $finalTotalPrice = $totalPrice; // Initially the final total is the same as total price
+    
+            // Apply discount only if total price is 300 BDT or more
+            if ($totalPrice >= 300) {
+                $discount = $totalPrice * 0.20; // 20% discount
+                $finalTotalPrice = $totalPrice - $discount; // Final total after discount
             }
     
-            // Calculate the total price
-            $totalPrice = array_sum(array_column($cartData, 'subtotal')) - $discount;
-    
-            // Insert data into order table
+            // If total is less than 300, no discount is applied, and finalTotalPrice remains unchanged
+            // Insert data into the order table
             $order = Order::create([
                 'customer_id' => auth()->user()->id,
                 'transaction_id' => date('YmdHis'),
@@ -185,7 +190,7 @@ class OrderController extends Controller
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'address' => $request->address,
-                'total_price' => $totalPrice,
+                'total_price' => $finalTotalPrice, // Final total price
                 'discount' => $discount, // Store the discount applied
                 'payment_method' => $request->paymentMethod,
                 'status' => 'pending',
@@ -193,6 +198,14 @@ class OrderController extends Controller
     
             // Insert cart data into order details table
             foreach ($cartData as $data) {
+                // Check if stock is sufficient
+                $food = Menu::find($data['id']);
+                if ($food->quantity < $data['quantity']) {
+                    notify()->error("Insufficient stock for item: {$food->name}");
+                    return redirect()->back();
+                }
+    
+                // Create order details
                 OrderDetail::create([
                     'order_id' => $order->id,
                     'food_id' => $data['id'],
@@ -202,7 +215,6 @@ class OrderController extends Controller
                 ]);
     
                 // Update stock quantity
-                $food = Menu::find($data['id']);
                 $food->decrement('quantity', $data['quantity']);
             }
     
@@ -211,7 +223,7 @@ class OrderController extends Controller
     
             // Payment handling
             if ($request->paymentMethod == 'ssl') {
-                $this->payNow($order);
+                return $this->payNow($order); // Handle SSL payment
             }
     
             notify()->success('Order placed successfully.');
@@ -221,6 +233,8 @@ class OrderController extends Controller
             dd($exception->getMessage());
         }
     }
+    
+
     
 
 

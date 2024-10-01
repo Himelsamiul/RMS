@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f7f6; /* Light grey background */
+            background-color: #f4f7f6;
             margin: 0;
             padding: 0;
         }
@@ -21,63 +21,49 @@
             padding: 20px;
         }
 
+        /* Common card styling */
         .dashboard-box {
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
             border: 1px solid #dddddd;
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
 
         .dashboard-box:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px); /* Elevate slightly on hover */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
-        .dashboard-title, .dashboard-content {
+        /* Unique colors for each card */
+        .dashboard-box.user-card {
+            background-color: rgba(255, 99, 132, 0.8); /* Semi-transparent Red */
+        }
+
+        .dashboard-box.category-card {
+            background-color: rgba(54, 162, 235, 0.8); /* Semi-transparent Blue */
+        }
+
+        .dashboard-box.menu-card {
+            background-color: rgba(255, 206, 86, 0.8); /* Semi-transparent Yellow */
+        }
+
+        .dashboard-box.order-card {
+            background-color: rgba(75, 192, 192, 0.8); /* Semi-transparent Green */
+        }
+
+        .dashboard-title {
             font-size: 22px;
             margin-bottom: 10px;
             color: #333333;
-            position: relative;
-            animation: bounceText 2s infinite;
         }
 
         .dashboard-content {
             font-size: 18px;
             color: #666666;
-        }
-
-        .text-red {
-            color: #e53935;
-        }
-
-        .bg-green-light {
-            background-color: #dcedc8;
-            border-color: #a5d6a7;
-        }
-
-        .bg-red-light {
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-        }
-
-        .bg-warning-light {
-            background-color: #fff3cd;
-            border-color: #ffeeba;
-        }
-
-        .card-footer {
-            border-top: 1px solid #dddddd;
-            padding: 15px;
-            background-color: #f9f9f9;
-        }
-
-        .card-footer:hover {
-            background-color: #f1f1f1;
         }
 
         .btn-primary {
@@ -93,36 +79,6 @@
             background-color: #0056b3;
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-30px);
-            }
-            60% {
-                transform: translateY(-15px);
-            }
-        }
-
-        @keyframes bounceText {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            25% {
-                transform: translateY(-10px);
-            }
-            75% {
-                transform: translateY(10px);
-            }
-        }
-
-        .emoji {
-            font-size: 2em;
-            display: inline-block;
-            animation: bounce 1s infinite;
-        }
-
         .digital-clock {
             font-size: 2em;
             text-align: center;
@@ -131,7 +87,6 @@
             color: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: 20px 0;
         }
     </style>
@@ -141,48 +96,33 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-sm-6 col-lg-3 mb-4">
-                <div class="dashboard-box bg-red-light">
-                    <h4 class="dashboard-title text-red">{{ $customer }}</h4>
+                <div class="dashboard-box user-card">
+                    <h4 class="dashboard-title">{{ $customer }}</h4>
                     <p class="dashboard-content">Total User</p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <a href="{{ route('customer.list') }}" class="btn-primary">View Details</a>
-                    </div>
+                    <a href="{{ route('customer.list') }}" class="btn-primary">View Details</a>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3 mb-4">
-                <div class="dashboard-box bg-green-light">
-                    <h4 class="dashboard-title text-red">{{ $category }}</h4>
+                <div class="dashboard-box category-card">
+                    <h4 class="dashboard-title">{{ $category }}</h4>
                     <p class="dashboard-content">Total Category</p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <a href="{{ route('category.list') }}" class="btn-primary">View Details</a>
-                    </div>
+                    <a href="{{ route('category.list') }}" class="btn-primary">View Details</a>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3 mb-4">
-                <div class="dashboard-box bg-warning-light">
-                    <h4 class="dashboard-title text-red">{{ $menu }}</h4>
+                <div class="dashboard-box menu-card">
+                    <h4 class="dashboard-title">{{ $menu }}</h4>
                     <p class="dashboard-content">Total Menu</p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <a href="{{ route('menu.list') }}" class="btn-primary">View Details</a>
-                    </div>
+                    <a href="{{ route('menu.list') }}" class="btn-primary">View Details</a>
                 </div>
             </div>
             <div class="col-sm-6 col-lg-3 mb-4">
-                <div class="dashboard-box bg-warning-light">
-                    <h4 class="dashboard-title text-red">{{ $order }}</h4>
+                <div class="dashboard-box order-card">
+                    <h4 class="dashboard-title">{{ $order }}</h4>
                     <p class="dashboard-content">Total Order</p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <a href="{{ route('order.list') }}" class="btn-primary">View Details</a>
-                    </div>
+                    <a href="{{ route('order.list') }}" class="btn-primary">View Details</a>
                 </div>
             </div>
-        </div>
-
-        <!-- Emoji Section -->
-        <div class="emoji-section text-center">
-            <p class="emoji">🎉</p>
-            <p class="emoji">🚀</p>
-            <p class="emoji">✨</p>
         </div>
 
         <!-- Digital Clock Section -->
@@ -190,24 +130,22 @@
             <!-- Time will be inserted here by JavaScript -->
         </div>
 
-        <!-- Include the order list view -->
+        <!-- Order List and Pie Chart -->
         <div>
             <h1 style="color: #0033FF">All Order Report</h1>
-         
-
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Customer Name</th>
-                        <th scope="col">Food Name</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Total Price</th>
-                        <th scope="col">Transaction ID</th>
-                        <th scope="col">Payment Method</th>
-                        <th scope="col">Payment Status</th>
-                        <th scope="col">Shipping Address</th>
-                        <th scope="col">Order Date</th>
+                        <th>ID</th>
+                        <th>Customer Name</th>
+                        <th>Food Name</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                        <th>Transaction ID</th>
+                        <th>Payment Method</th>
+                        <th>Payment Status</th>
+                        <th>Shipping Address</th>
+                        <th>Order Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -230,18 +168,15 @@
                 </tbody>
             </table>
 
-            <!-- Pie chart container -->
             <div style="width: 50%; margin-top: 30px;">
                 <canvas id="orderChart"></canvas>
             </div>
         </div>
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Function to update the digital clock
             function updateDigitalClock() {
                 const now = new Date();
                 const hours = String(now.getHours()).padStart(2, '0');
@@ -250,12 +185,10 @@
                 document.getElementById('digitalClock').textContent = `${hours}:${minutes}:${seconds}`;
             }
 
-            // Initial clock setup
             updateDigitalClock();
             setInterval(updateDigitalClock, 1000);
         });
 
-        // Data for the pie chart
         const labels = @json($labels);
         const data = @json($data);
 
@@ -294,10 +227,6 @@
             const ctx = document.getElementById('orderChart').getContext('2d');
             new Chart(ctx, config);
         };
-
-        function printReport() {
-            window.print();
-        }
     </script>
 </body>
 
