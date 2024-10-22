@@ -67,6 +67,8 @@
 
   <label for="price">Price:</label>
   <input type="number" id="price" name="price" required>
+  <label for="price">Previous Price</label>
+  <input type="number" id="previousprice" name="previousprice" >
 
   <label for="description">description:</label>
   <input type="text" id="description" name="description" required placeholder="">

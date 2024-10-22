@@ -13,7 +13,7 @@
 
 <h1>Create Menu</h1>
 <div>
-    <a href="{{route('menu.form')}}" type="button" class="btn btn-success">new menu</a>
+    <a href="{{route('menu.form')}}" type="button" class="btn btn-success" >new menu</a>
 </div>
        
 <div>
@@ -21,9 +21,10 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Name</th>
+      <th scope="col" >Name</th>
       <th scope="col">Category</th>
       <th scope="col">Price</th>
+      <th scope="col">previous Price</th>
       <th scope="col">Description</th>
       
       
@@ -44,6 +45,7 @@
       <td>{{$menu->name}}</td>
       <td>{{$menu->category->name}}</td>
       <td>{{$menu->price}}.BDT</td>
+      <td>{{$menu->previousprice}}.BDT</td>
       <td>{{$menu->description}}</td>    
       
       <td>{{$menu->quantity}}</td>

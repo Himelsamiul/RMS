@@ -36,6 +36,7 @@ class MenuController extends Controller
             'name'=>'required',
             'category_id'=>'required',
             'price'=>'required|gt:1',
+            'previousprice'=>'nullable|gt:1',
             'description'=>'required',
            
             'quantity'=>'required|gt:0',
@@ -77,6 +78,7 @@ class MenuController extends Controller
             'name'=>$request->name,
             'categoryid'=>$request->category_id,
             'price'=>$request->price,
+            'previousprice'=>$request->previousprice,
             'description'=>$request->description,
             
             'quantity'=>$request->quantity,

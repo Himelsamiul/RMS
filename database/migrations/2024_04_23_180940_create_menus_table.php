@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('categoryid');
             $table->integer('price')->nullable();
+            $table->integer('previousprice')->nullable();
             $table->string('description')->nullable();
             $table->string('status')->nullable();
             $table->string('quantity')->nullable();

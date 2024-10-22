@@ -2,7 +2,6 @@
 @section('content')
 
 <style>
-
 .card {
     background-color: rgba(248, 249, 250, 0.3); 
     border: 1px solid rgba(224, 224, 224, 0.1); 
@@ -76,7 +75,20 @@ body {
                         <div class="card-body">
                             <h5 class="card-title">{{$data->name}}</h5>
                             <p class="card-text">{{$data->description}}</p>
-                            <p class="card-text">{{$data->price}}&nbsp;BDT</p>
+                            
+                            @if($data->previousprice)
+                            <!-- Show both previous and current price if previous price exists -->
+                            <p class="card-text">
+                                <span style="text-decoration: line-through;">{{$data->previousprice}}&nbsp;BDT</span> 
+                                <span style="color: #EAE86F;">{{$data->price}}&nbsp;BDT</span>
+                            </p>
+                            @else
+                            
+                            <p class="card-text">
+                                <span style="color: #EAE86F;">{{$data->price}}&nbsp;BDT</span>
+                            </p>
+                            @endif
+                            
                             <a href="{{route('add.to.cart',$data->id)}}" class="btn btn-primary" data-mdb-ripple-init>Add To Cart</a>
                         </div>
                     </div>

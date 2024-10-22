@@ -63,7 +63,7 @@
             <div class="row contact-form animated-slide">
                 <div class="col-md-6">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate" action="" method="POST">
+                    <form name="sentMessage" id="contactForm" novalidate="novalidate" action="">
                         @csrf
                         <div class="control-group">
                             <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
