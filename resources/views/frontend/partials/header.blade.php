@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-lg bg-light navbar-light sticky-top">
     <div class="container-fluid">
-        <a href="#" class="navbar-brand">Olivia</a>
+        <a href="{{ route('home') }}" class="navbar-brand">Food Heaven</a>
         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
             <div class="navbar-nav ml-auto">
                 <a href="{{ route('home') }}" class="btn btn-secondary" style="margin-right: 10px;">Home</a>

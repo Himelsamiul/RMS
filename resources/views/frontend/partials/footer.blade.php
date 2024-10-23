@@ -6,9 +6,9 @@
                             <div class="col-md-6">
                                 <div class="footer-contact">
                                     <h2>Our Address</h2>
-                                    <p><i class="fa fa-map-marker-alt"></i>Mirpur,Dhaka-1214,Bangladesh</p>
-                                    <p><i class="fa fa-phone-alt"></i>+880 1706-636599</p>
-                                    <p><i class="fa fa-envelope"></i>himel@gmail.com</p>
+                                    <p><i class="fa fa-map-marker-alt"></i>Sector 10,Uttara,Dhaka-1214,Bangladesh</p>
+                                    <p><i class="fa fa-phone-alt"></i>+880 1772499204</p>
+                                    <p><i class="fa fa-envelope"></i>afia@gmail.com</p>
                                     <div class="footer-social">
                                         <a href=""><i class="fab fa-twitter"></i></a>
                                         <a href="https://www.facebook.com/samiul.alam.184"><i class="fab fa-facebook-f"></i></a>
@@ -46,8 +46,8 @@
             </div>
             <div class="copyright">
                 <div class="container">
-                    <p>Copyright &copy; <a href="#">Olivia</a>, All Right Reserved.</p>
-                    <p>Designed By <a href="https://htmlcodex.com">Himel</a></p>
+                    <p>Copyright &copy; <a href="#">Food Heaven</a>, All Right Reserved.</p>
+                    <p>Designed By <a href="https://htmlcodex.com">Afia</a></p>
                 </div>
             </div>
         </div>
