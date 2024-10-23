@@ -80,7 +80,7 @@
 
 
   <label for="iamge">Image:</label>
-  <input type="file" id="image" name="image">
+  <input  type="file" id="image" name="image">
 
 
 

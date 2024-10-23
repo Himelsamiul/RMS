@@ -21,7 +21,7 @@
 /* Card title and text */
 .card-title,
 .card-text {
-    color: #EAE86F; /* cart er text er colour change korbo */
+    color: #40E0D0; /* cart er text er colour change korbo */
 }
 
 /* Primary button */
@@ -44,7 +44,7 @@
 
 /* Background image for the page */
 body {
-    background-image: url('/p.jpg'); /* image set korbo */
+    background-image: url('/h.jpeg'); /* image set korbo */
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat; 

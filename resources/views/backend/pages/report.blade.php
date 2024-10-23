@@ -43,7 +43,7 @@
 
     .card-body {
         padding: 20px;
-        font-family: 'Arial', sans-serif;
+        font-family: 'Times New Roman',Georgia;
     }
 
     .card-body p {
@@ -55,14 +55,14 @@
         width: 100%;
         padding: 10px;
         border-radius: 5px;
-        background-color: #32cd32; /* LimeGreen button */
+        background-color: #4682b4; /* LimeGreen button */
         border: none;
         color: white;
         font-size: 1.2em;
     }
 
     .btn-primary:hover {
-        background-color: #228b22; /* Darker green on hover */
+        background-color: #8a111d; /* Darker green on hover */
     }
 
     .no-data {

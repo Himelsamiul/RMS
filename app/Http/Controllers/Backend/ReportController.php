@@ -14,13 +14,17 @@ class ReportController extends Controller
     {
         // Validate the dates
         $request->validate([
-            'start_date' => 'nullable|date|before_or_equal:today', 
-            'end_date' => 'nullable|date|after_or_equal:start_date',
+            'start_date' => 'nullable|date|before_or_equal:today',
+            'end_date' => 'nullable|date|after_or_equal:start_date|before_or_equal:today',
         ]);
     
+        
         $startDate = $request->input('start_date', Carbon::now()->startOfMonth()->toDateString());
-        $endDate = $request->input('end_date', Carbon::now()->endOfMonth()->toDateString());
     
+        
+        $endDate = Carbon::parse($request->input('end_date', Carbon::now()->toDateString()))->endOfDay()->toDateTimeString();
+    
+        
         $topFood = OrderDetail::select('menus.name', DB::raw('SUM(order_details.quantity) as total_quantity'))
             ->join('menus', 'order_details.food_id', '=', 'menus.id')
             ->join('orders', 'order_details.order_id', '=', 'orders.id')
@@ -29,7 +33,7 @@ class ReportController extends Controller
             ->orderBy('total_quantity', 'DESC')
             ->first();
     
-        // Define a dynamic class based on some condition, for example, if a food item is found
+        
         $dynamicClass = $topFood ? 'highlight-card' : 'normal-card';
     
         return view('backend.pages.report', compact('topFood', 'startDate', 'endDate', 'dynamicClass'));
