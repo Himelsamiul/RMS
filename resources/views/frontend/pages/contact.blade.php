@@ -16,7 +16,7 @@
                         </div>
                         <div class="contact-text">
                             <h3>Address</h3>
-                            <p>Sector 10,Uttara, Dhaka, Bangladesh</p>
+                            <p>Mirpur-12,Uttara, Dhaka, Bangladesh</p>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="contact-text">
                             <h3>Call Us</h3>
-                            <p>01772499204</p>
+                            <p>01706636599</p>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="contact-text">
                             <h3>Email Us</h3>
-                            <p>afia@gmail.com</p>
+                            <p>himel@gmail.com</p>
                         </div>
                     </div>
                 </div>

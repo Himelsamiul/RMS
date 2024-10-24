@@ -11,7 +11,7 @@
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th scope="col">ID</th>
+                <th scope="col" >ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Category</th>
                 <th scope="col">Price</th>

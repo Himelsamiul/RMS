@@ -108,7 +108,7 @@ class OrderController extends Controller
     // Find the product from the Menu (database)
     $product = Menu::find($cartId);
 
-    // Check if the product exists and if the requested quantity exceeds the stock
+
     if (!$product || $newQuantity > $product->quantity) {
         return response()->json(['success' => false, 'message' => 'Quantity exceeds available stock.']);
     }

@@ -65,7 +65,6 @@ Route::get('/clear-order',[OrderController::class,'clearCart'])->name('cart.clea
 
 //Route::get('/makepayment/{id}', [WebpagerController::class, 'makepayment'])->name('make.payment');
 
-
 // SSLCOMMERZ Start
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
 Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);

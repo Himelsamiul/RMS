@@ -17,11 +17,11 @@
                     <div class="about-content animated-slide">
                         <div class="section-header">
                             <p>About Us</p>
-                            <h2>Cooking Since 2020</h2>
+                            <h2  >Cooking Since 2020</h2>
                         </div>
                         <div class="about-text">
                             <p>
-                                "Welcome to Olivia's, where culinary excellence meets exceptional service! Since 2020, Olivia's has been the heart of our community, dedicated to providing you with unforgettable dining experiences. From our carefully crafted menus featuring locally sourced ingredients to our warm and inviting ambiance, every aspect of Olivia's is designed to delight your senses and create lasting memories. Whether you're joining us for a cozy dinner with loved ones or a celebratory gathering with friends, our team is here to ensure your time with us is nothing short of extraordinary. Come savor the flavors of Olivia's and experience hospitality at its finest!"
+                                "Welcome to Food Heaven, where culinary excellence meets exceptional service! Since 2020, Food Haven's has been the heart of our community, dedicated to providing you with unforgettable dining experiences. From our carefully crafted menus featuring locally sourced ingredients to our warm and inviting ambiance, every aspect of Food Heaven's is designed to delight your senses and create lasting memories. Whether you're joining us for a cozy dinner with loved ones or a celebratory gathering with friends, our team is here to ensure your time with us is nothing short of extraordinary. Come savor the flavors of Food Haven's and experience hospitality at its finest!"
                             </p>
                         </div>
                     </div>

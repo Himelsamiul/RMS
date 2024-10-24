@@ -47,7 +47,7 @@ class CustomerController extends Controller
             'email' => strtolower($request->email),
             'password' => bcrypt($request->password),
             'phoneno' => $request->phone,
-            'address' => $request->address,
+            'address' => $request->address,  //bam pase database er colmn name dan form name
             'dob' => $request->dob,
             'image' => $request->image,
             'status' => $request->status,

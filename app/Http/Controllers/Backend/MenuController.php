@@ -13,8 +13,6 @@ class MenuController extends Controller
 
     public function list(){
         $data=Menu::paginate(5);  
-    
-        
         
         return view('backend.pages.menu.menulist',compact('data'));
     }
